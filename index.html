@@ -223,6 +223,7 @@ ol.refs .doi{font-size:13px;font-weight:600;text-decoration:none;margin-top:6px;
   min-height:44px;transition:.18s ease}
 .chk input{width:18px;height:18px;min-height:0;margin:4px 0 0;accent-color:var(--p2);flex:0 0 auto}
 .chk label:has(input:checked){background:var(--p-wash);border-color:var(--p2)}
+.chk span b{color:var(--p1);font-weight:700;font-variant-numeric:tabular-nums}
 input[type=text],textarea{width:100%;border-radius:12px;border:1.5px solid rgba(58,42,34,.16);
   background:var(--n-cool);padding:12px 14px;font:inherit;font-size:15px;color:var(--tx)}
 textarea{min-height:110px;line-height:1.75;resize:vertical}
@@ -387,23 +388,23 @@ footer .frow{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
           <div class="fld">
             <span class="lab">最有收穫的段落 <span class="hint">可複選</span></span>
             <div class="chk">
-              <label><input type="checkbox" name="best" value="管路與流體力學"><span>管路選擇與流體力學（為什麼引流管要比回輸管粗）</span></label>
-              <label><input type="checkbox" name="best" value="溶血與再循環"><span>溶血與再循環的區辨</span></label>
-              <label><input type="checkbox" name="best" value="呼吸器設定"><span>ECMO 上的呼吸器設定（rest setting）</span></label>
-              <label><input type="checkbox" name="best" value="支氣管鏡"><span>支氣管鏡的安全性與時機</span></label>
-              <label><input type="checkbox" name="best" value="脫離與早期活動"><span>脫離評估與早期活動</span></label>
-              <label><input type="checkbox" name="best" value="新生兒專屬"><span>新生兒專屬考量</span></label>
+              <label><input type="checkbox" name="best" value="I 適應症與時機"><span><b>I</b>　適應症與時機</span></label>
+              <label><input type="checkbox" name="best" value="II 管路與型式"><span><b>II</b>　管路與型式</span></label>
+              <label><input type="checkbox" name="best" value="III 參數判讀與監測"><span><b>III</b>　參數判讀與監測</span></label>
+              <label><input type="checkbox" name="best" value="IV 呼吸治療策略"><span><b>IV</b>　呼吸治療策略</span></label>
+              <label><input type="checkbox" name="best" value="V 併發症與存活"><span><b>V</b>　併發症與存活</span></label>
+              <label><input type="checkbox" name="best" value="VI 臨床案例與總結"><span><b>VI</b>　臨床案例與總結</span></label>
             </div>
           </div>
 
           <div class="fld">
             <span class="lab">希望下次多講什麼？</span>
-            <input type="text" name="next_topic" placeholder="例如：俯臥擺位的實際操作、台灣本土資料">
+            <input type="text" name="next_topic">
           </div>
 
           <div class="fld">
             <span class="lab">其他建議 <span class="hint">選填</span></span>
-            <textarea name="comments" placeholder="哪一段講太快、哪一張投影片看不懂，都歡迎直說。"></textarea>
+            <textarea name="comments"></textarea>
           </div>
 
           <button class="btn btn-fill" type="submit" id="submit-btn">送出回饋</button>
