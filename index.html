@@ -69,17 +69,21 @@ a{color:var(--p1)}
 .mark .dot{width:26px;height:26px;border-radius:50%;background:var(--p2);flex:0 0 auto;
   display:grid;place-items:center;color:#fff;font-size:12px;font-weight:700}
 .nav .scroll-x{margin-left:auto;gap:4px}
-.nav .scroll-x a{padding:8px 14px;border-radius:50px;text-decoration:none;color:var(--tx2);
-  font-size:14px;font-weight:600;white-space:nowrap;transition:.2s ease}
-.nav .scroll-x a:hover{background:var(--n-warm-deep);color:var(--p1)}
-@media (max-width:520px){
+.tab{padding:8px 16px;border-radius:50px;border:1.5px solid transparent;background:transparent;
+  color:var(--tx2);font-family:inherit;font-size:14.5px;font-weight:600;white-space:nowrap;
+  cursor:pointer;transition:.2s ease;min-height:40px}
+.tab:hover{background:var(--n-warm-deep);color:var(--p1)}
+.tab[aria-selected="true"]{background:var(--p2);color:#fff}
+.tab:active{transform:scale(.95)}
+.tab:focus-visible{outline:2px solid var(--p1);outline-offset:2px}
+@media (max-width:560px){
   .mark-full{display:none}
   .nav-in{gap:8px}
-  .nav .scroll-x a{padding:8px 10px;font-size:13.5px}
+  .tab{padding:8px 11px;font-size:13.5px}
 }
 
 /* ── Hero ────────────────────────────────────────────────────────── */
-.hero{padding-block:clamp(36px,6vw,64px) var(--section);background:
+.hero{padding-block:clamp(32px,5vw,56px) clamp(20px,3vw,32px);background:
   linear-gradient(0deg,var(--n-warm),var(--n-warm))}
 .hero-grid{display:grid;gap:clamp(20px,3vw,32px);
   grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));align-items:center}
@@ -95,12 +99,18 @@ a{color:var(--p1)}
 .hero-card{background:var(--p3);color:var(--tx-d);border-radius:12px;padding:clamp(22px,3.4vw,32px);
   box-shadow:var(--card-h)}
 .hero-card h2{font-size:20px;font-weight:600;margin-bottom:14px}
-.hero-card ol{margin:0;padding-left:1.15em;color:var(--tx-d2);line-height:2}
-.hero-card ol a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
-.hero-card ol a:hover{border-color:#fff}
+.jumps{display:grid;gap:8px}
+.jump{display:flex;align-items:baseline;gap:12px;justify-content:flex-start;width:100%;text-align:left;
+  background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.14);border-radius:12px;
+  padding:11px 16px;min-height:44px;font:inherit;color:#fff;cursor:pointer;transition:.18s ease}
+.jump:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.32)}
+.jump:active{transform:scale(.98)}
+.jump b{font-size:15.5px;font-weight:700;flex:0 0 auto}
+.jump span{font-size:13.5px;color:var(--tx-d2)}
 
 /* ── Sections ────────────────────────────────────────────────────── */
 section[id]{scroll-margin-top:76px}
+.panel{min-height:calc(100vh - 72px)}
 .band{padding-block:var(--section)}
 .band.alt{background:var(--n-warm-deep)}
 .band.dark{background:var(--p3);color:var(--tx-d)}
@@ -242,11 +252,11 @@ footer .frow{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
 <nav class="nav">
   <div class="container nav-in">
     <a class="mark" href="#top"><span class="dot">E</span>小兒 ECMO<span class="mark-full"> 呼吸照護</span></a>
-    <div class="scroll-x">
-      <a href="#handout">講義</a>
-      <a href="#quiz">考題</a>
-      <a href="#refs">文獻</a>
-      <a href="#survey">滿意度</a>
+    <div class="scroll-x" role="tablist" aria-label="頁面分頁">
+      <button class="tab" type="button" role="tab" data-tab="handout">講義</button>
+      <button class="tab" type="button" role="tab" data-tab="quiz">考題</button>
+      <button class="tab" type="button" role="tab" data-tab="refs">文獻來源</button>
+      <button class="tab" type="button" role="tab" data-tab="survey">回饋</button>
     </div>
   </div>
 </nav>
@@ -256,7 +266,7 @@ footer .frow{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
     <div>
       <span class="eyebrow">115 學年度 · 進階小兒學術研討會</span>
       <h1>小兒 ECMO<br>呼吸照護實務</h1>
-      <p class="lede">先講機轉，再用數字釘住。這一頁放的是演講當天用得到的四件事：講義、考題、每一個數字的出處，還有你的回饋。</p>
+      <p class="lede">歡迎下載講義、順手做幾題複習，最後別忘了留下你的回饋。</p>
       <div class="meta">
         <span class="chip"><small>講者</small>曾筠婷 呼吸治療師</span>
         <span class="chip"><small>日期</small>2026 / 09 / 06</span>
@@ -265,18 +275,18 @@ footer .frow{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
     </div>
     <div class="hero-card">
       <h2>這一頁有什麼</h2>
-      <ol>
-        <li><a href="#handout">講義 PDF 下載</a></li>
-        <li><a href="#quiz">線上考題（10 題，含解析）</a></li>
-        <li><a href="#refs">文獻來源與出處</a></li>
-        <li><a href="#survey">滿意度回饋</a></li>
-      </ol>
+      <div class="jumps">
+        <button class="jump" type="button" data-tab="handout"><b>講義</b><span>簡報 PDF 下載</span></button>
+        <button class="jump" type="button" data-tab="quiz"><b>考題</b><span>10 題，作答即對答案</span></button>
+        <button class="jump" type="button" data-tab="refs"><b>文獻來源</b><span>每個數字的出處</span></button>
+        <button class="jump" type="button" data-tab="survey"><b>回饋</b><span>一分鐘，幫下一場變好</span></button>
+      </div>
     </div>
   </div>
 </header>
 
 <!-- ═══ 1. 講義 ═══ -->
-<section class="band" id="handout">
+<section class="band panel" id="handout" role="tabpanel" hidden>
   <div class="container">
     <div class="sec-head">
       <span class="sec-num">01</span>
@@ -296,15 +306,15 @@ footer .frow{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
       </div>
       <div class="card">
         <h3>怎麼用這份講義</h3>
-        <p>每一段都是「先給道理、再給數字、最後一句帶得走的話」。數字看不懂出處時，直接到<a href="#refs">文獻來源</a>對照。</p>
-        <a class="btn btn-out" href="#refs">前往文獻來源</a>
+        <p>每一段都是「先給道理、再給數字、最後一句帶得走的話」。數字看不懂出處時，直接翻到文獻來源那一頁對照。</p>
+        <button class="btn btn-out" type="button" data-tab="refs">前往文獻來源</button>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ═══ 2. 考題 ═══ -->
-<section class="band alt" id="quiz">
+<section class="band alt panel" id="quiz" role="tabpanel" hidden>
   <div class="container">
     <div class="sec-head">
       <span class="sec-num">02</span>
@@ -320,7 +330,7 @@ footer .frow{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
 </section>
 
 <!-- ═══ 3. 文獻 ═══ -->
-<section class="band" id="refs">
+<section class="band panel" id="refs" role="tabpanel" hidden>
   <div class="container">
     <div class="sec-head">
       <span class="sec-num">03</span>
@@ -338,11 +348,11 @@ footer .frow{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
 </section>
 
 <!-- ═══ 4. 滿意度 ═══ -->
-<section class="band dark" id="survey">
+<section class="band dark panel" id="survey" role="tabpanel" hidden>
   <div class="container">
     <div class="sec-head">
       <span class="sec-num">04</span>
-      <h2 class="sec-title">滿意度回饋</h2>
+      <h2 class="sec-title">回饋</h2>
       <p class="sec-sub">大約一分鐘。你的回饋會直接影響下一場的內容深度與取捨。</p>
     </div>
 
@@ -451,66 +461,95 @@ function renderHandout(slotId, cfg){
 renderHandout("handout-slot", HANDOUT);
 renderHandout("handout-slot-2", HANDOUT_2);
 
+/* ── 分頁 ──────────────────────────────────────────────────────── */
+const TABS = ["handout","quiz","refs","survey"];
+const tabBtns = document.querySelectorAll(".tab");
+
+function activate(name, scroll){
+  if (!TABS.includes(name)) name = "handout";
+  TABS.forEach(t => { document.getElementById(t).hidden = (t !== name); });
+  tabBtns.forEach(b => b.setAttribute("aria-selected", String(b.dataset.tab === name)));
+  if (scroll){
+    const y = document.getElementById(name).getBoundingClientRect().top + window.scrollY - 64;
+    window.scrollTo({ top: Math.max(y, 0), behavior: "smooth" });
+  }
+}
+
+document.addEventListener("click", e => {
+  const el = e.target.closest("[data-tab]");
+  if (!el) return;
+  const name = el.dataset.tab;
+  if (location.hash.slice(1) === name) activate(name, true);
+  else location.hash = name;
+});
+
+addEventListener("hashchange", () => {
+  const h = location.hash.slice(1);
+  if (TABS.includes(h)) activate(h, true);
+});
+
+activate(location.hash.slice(1), false);
+
 /* ── 考題 ──────────────────────────────────────────────────────── */
 const QUESTIONS = [
  {q:"在監測使用葉克膜（ECMO）的病人時，Hct 通常維持在哪個範圍內以確保足夠的氧氣輸送能力？",
   o:["50–55%","40–45%","30–35%","20–25%"],a:2,
-  e:"ECMO 的氧氣輸送量 = 血流量 × 血紅素攜氧量，所以維持一定的 Hct 是「用血液品質換流量」的做法。傳統目標落在 30–35%（Hb 約 10–12 g/dL）：再高會增加血液黏滯度與迴路血栓風險，再低則必須靠拉高流量來補償，而拉高流量本身就會增加剪力與溶血。",
-  w:"近年趨勢是限制性輸血，各中心門檻不一致；講的時候請說「多數中心維持 30% 以上」，不要說成有共識的固定數字。",
+  e:"氧輸送 = 血流量 × 攜氧量。Hct 太低要靠拉高流量補償，而高流量本身增加剪力與溶血；太高則增加黏滯度與迴路血栓。30–35%（Hb 約 10–12 g/dL）是兩者之間的折衷。",
+  w:"近年趨勢是限制性輸血，各中心門檻不同——講成「多數中心維持 30% 以上」比講死一個區間安全。",
   s:"ELSO Guidelines for Neonatal Respiratory Failure, ASAIO J 2020"},
 
  {q:"根據 ELSO 指引，在葉克膜（ECMO）治療期間，建議的呼吸器設定策略為何？",
   o:["增加呼吸次數","盡可能提高平均氣道壓","採用 rest settings","維持 FiO₂ 100%"],a:2,
-  e:"ECMO 已經接手氧合與二氧化碳清除，呼吸器的任務從「維持氣體交換」變成「讓肺休息」。真實世界的 rest setting 中位數是 rate 12、PIP 22、PEEP 10、FiO₂ 0.4——插管後 rate 降 54%、PIP 降 35%、FiO₂ 降 60%，只有 PEEP 幾乎不動，維持在 10。",
-  w:"但「rest setting」不等於有共識的數值。Friedman 2020 自己聲明本研究不支持任何特定呼吸器策略，建議個別化。",
+  e:"ECMO 已接手氧合與二氧化碳清除，呼吸器的任務改成讓肺休息。真實世界的 rest setting 中位數是 rate 12、PIP 22、PEEP 10、FiO₂ 0.4——插管後 rate 降 54%、PIP 降 35%、FiO₂ 降 60%，只有 PEEP 不動。",
+  w:"Rest setting 不等於有共識的數值。Friedman 2020 明講本研究不支持任何特定呼吸器策略。",
   s:"Friedman 2022, Int J Artif Organs 45(2):174-180；Friedman 2020, Respir Care 65(3):271-280"},
 
  {q:"關於小兒 ECMO 的使用，何者<b>非</b>適應症？",
   o:["呼吸窘迫症候群（RDS）","先天橫膈膜麻痺","急性心肌炎併心臟衰竭","吸入性胎便肺炎症候群（MAS）"],a:1,
-  e:"新生兒 ECMO 有四分之三是呼吸性病因，其中以 CDH、PPHN、MAS 為大宗；急性猛爆性心肌炎則是典型的 VA ECMO 適應症（可恢復的心因性衰竭）。先天橫膈膜「麻痺」是神經肌肉性的通氣問題，處理方式是橫膈折疊術加上呼吸器支持，不是 ECMO 的適應症——它和先天橫膈膜「疝氣」（CDH）是兩件事，中文只差一個字，很容易混。",
+  e:"新生兒 ECMO 有四分之三是呼吸性病因，以 CDH、PPHN、MAS 為大宗；猛爆性心肌炎則是典型的 VA 適應症。橫膈膜「麻痺」是神經肌肉性的通氣問題，處理方式是橫膈折疊術加呼吸器支持，與橫膈膜「疝氣」（CDH）是兩件事。",
   w:"",
   s:"Chernoguz & Monteagudo, Semin Pediatr Surg 2023;32:151326"},
 
  {q:"有關 extracorporeal membrane oxygenation（ECMO）的敘述，何者正確？",
   o:["調整 gas blender 的氣體流速（gas flow），可以控制血液中 CO₂ 的濃度","blood flow 會受管路 size 影響","heat exchanger 溫度控制在 36.5–37°C，過低易心律不整","以上皆是"],a:3,
-  e:"三個都對，而且分屬三條不同的物理線：<br>① <b>兩個旋鈕各管一件事</b>——sweep gas flow 洗掉 CO₂，FdO₂ 管氧合。但 gas flow 不可以低於 1 L/min，那不是省，是讓氧合器積水失效。<br>② <b>泊肅葉定律</b>：阻力 ∝ 1/r⁴，導管直徑加倍，壓力降變成 1/16。所以管徑就是流量的天花板。<br>③ 體溫目標 37°C；低體溫會誘發心律不整（HIE 需低溫治療者例外，前 24–72 小時 33–34°C）。",
+  e:"三條各自獨立的物理線：<br>① sweep gas flow 洗掉 CO₂、FdO₂ 管氧合；但 gas flow 不可低於 1 L/min，否則氧合器積水失效。<br>② 泊肅葉定律 R ∝ 1/r⁴——導管直徑加倍，壓力降剩 1/16，管徑就是流量的天花板。<br>③ 體溫目標 37°C，過低誘發心律不整（HIE 需低溫治療者前 24–72 小時 33–34°C 例外）。",
   w:"",
   s:"Gajkowski 2022, ASAIO J 68(2):133-152；ELSO Neonatal Guidelines 2020"},
 
  {q:"下列何者符合理想照護目標？",
   o:["VV ECMO 之下，SvO₂ 65%、SaO₂ 99%","VV ECMO 之下，SvO₂ 99%、SaO₂ 65%","VA ECMO 之下，SvO₂ 90%、SaO₂ 99%","VA ECMO 之下，SvO₂ 99%、SaO₂ 90%"],a:0,
-  e:"SvO₂ 該低於 SaO₂——那個差距就是組織真的把氧用掉了。VA ECMO 的 SvO₂ 目標是 65–80%；VV ECMO 因為回輸血本來就會混進引流端，SvO₂ 會被墊高，但仍應明顯低於動脈端。<br>選項 B（SvO₂ 99% 卻 SaO₂ 65%）是嚴重再循環的典型畫面；C、D 的 SvO₂ 90–99% 代表血根本沒被組織萃取，要嘛是再循環，要嘛是組織氧利用障礙。",
-  w:"",
-  s:"ELSO Neonatal Guidelines 2020；Gajkowski 2022"},
+  e:"SvO₂ 低於 SaO₂ 的那個差距，就是組織確實把氧用掉了。VA ECMO 的 SvO₂ 目標是 65–80%。選項 B（SvO₂ 99%、SaO₂ 65%）是嚴重再循環的典型畫面；C、D 的 SvO₂ 90–99% 代表血沒被萃取。",
+  w:"選項 A 的 SaO₂ 99% 與 VV ECMO 常用的容許性低血氧目標（SpO₂ 88–92%）不一致；四個裡它仍是最好的答案，但可能被追問。",
+  s:"ELSO Neonatal Guidelines 2020；Friedman 2020, Respir Care"},
 
  {q:"一位 8 歲孩童因 pARDS 裝置 double-lumen VV ECMO，Pump flow 已達最大設定，但團隊發現 SpO₂ 88%、SvO₂ 89%、氧合器後 SaO₂ 99%。最可能是什麼？該怎麼處理？",
   o:["競爭流（Competitive Flow），應提高 FdO₂","氧合器故障，應調整呼吸器 FiO₂ 並準備更換氧合器","再循環（Recirculation）或管路移位，確認管路位置","心輸出量不足，加上強心劑"],a:2,
-  e:"關鍵線索是 <b>SvO₂ 追上甚至超過 SpO₂</b>——ELSO 指引舉的例子就是「SvO₂ 87% / SpO₂ 92%」為可疑、「SvO₂ 92% / SpO₂ 87%」為嚴重。氧合器後 SaO₂ 99% 直接排除氧合器故障。<br>處置順序是<b>先確認導管位置</b>（超音波優於單張胸片，因為頸部導管位置會隨頭頸姿勢改變），再考慮 sedation、repositioning、補容積、必要時<b>降</b>流量。",
-  w:"直覺會想把流量再調高，但 Tomarchio 2024 寫得很清楚：QR worsens with increasing ECBF, to a point where the Qeff might paradoxically decrease——流量愈高，再循環愈嚴重，有效流量反而下降。另外請不要說「雙腔比雙管容易再循環」，文獻方向相反；DLC 真正的弱點是對位置極度敏感。",
-  s:"Gajkowski 2022, ASAIO J；Tomarchio 2024, Perfusion；Thompson 2018, Pediatr Radiol 48:1488-1502"},
+  e:"關鍵在 SvO₂ 追上 SpO₂。ELSO 舉的例子是「SvO₂ 87% / SpO₂ 92%」可疑、「SvO₂ 92% / SpO₂ 87%」嚴重。氧合器後 SaO₂ 99% 直接排除氧合器故障。<br>處置順序：<b>先確認導管位置</b>（超音波優於單張胸片，頸部導管會隨頭頸姿勢移動），再考慮 sedation、repositioning、補容積，必要時<b>降</b>流量。",
+  w:"調高流量是最誘人的錯誤——Tomarchio 2024：流量愈高、再循環愈嚴重，有效流量反而下降。另請勿說「雙腔比雙管容易再循環」，文獻方向相反；DLC 的弱點是對位置極度敏感。",
+  s:"Gajkowski 2022；Tomarchio 2024, Perfusion；Thompson 2018, Pediatr Radiol 48:1488-1502"},
 
  {q:"有關 neonatal ECMO 的使用與裝置，何者<b>為非</b>？",
   o:["VV ECMO 常用 double-lumen，管路依據體重決定","Relative contraindication：infant &lt; 30 week","Indication &gt; 2 kg","VA ECMO 常見放置位置為 right internal jugular vein 與 right common carotid artery，管路依據體重決定"],a:1,
-  e:"新生兒的相對禁忌門檻是<b>妊娠 34 週</b>與體重 2 kg，不是 30 週。而且這條線近十年已經鬆動——早產與低體重不再被當成絕對禁忌。<br>其他三項都對：頸動脈 VA 佔新生兒 ECMO 的 85–90%；導管尺寸依體重選（&lt; 3 kg 動脈 8–10 Fr、靜脈雙腔 12–13 Fr）。",
-  w:"雙腔導管最細只有 13 Fr，所以體重低於 2.5 kg 的新生兒在 VV 這條路上是真的受限——這是設備限制，不是禁忌症。",
+  e:"新生兒的相對禁忌門檻是<b>妊娠 34 週</b>與體重 2 kg，不是 30 週，而且近十年已經鬆動。其餘三項都對：頸動脈 VA 佔新生兒 ECMO 的 85–90%；導管依體重選（&lt; 3 kg 動脈 8–10 Fr、靜脈雙腔 12–13 Fr）。",
+  w:"雙腔導管最細只有 13 Fr，體重低於 2.5 kg 走 VV 這條路確實受限——那是設備限制，不是禁忌症。",
   s:"McDermott 2025, J Pediatr Surg 60:161961；Chernoguz 2023"},
 
  {q:"傳統呼吸器（CMV）與高頻震盪式通氣（HFOV）之下的 oxygenation index（OI），達到多少可以考慮 ECMO？",
   o:["CMV 60 / HFOV 40","CMV 30 / HFOV 50","CMV 40 / HFOV 40","CMV 40 / HFOV 60"],a:3,
-  e:"OI = (MAP × FiO₂ × 100) / PaO₂。HFOV 本身就是靠拉高平均氣道壓來換氧合，同一個病人換到 HFOV 之後 OI 會被墊高，所以門檻要跟著往上調，才不會把「模式差異」誤讀成「病情惡化」。常用的組合就是 CMV OI ≥ 40、HFOV OI ≥ 60。",
-  w:"PALICC-2 對 ECMO 啟動的正式立場是 <b>“No strict criteria”</b>（Rec 8.1.1，conditional，90% agreement）——OI 是輔助判斷，不是通過門檻就該上機。另可參考 OSI 17.41（sustained 0.5–6 小時）作為無動脈導管時的替代指標。",
+  e:"OI =（MAP × FiO₂ × 100）／PaO₂。HFOV 本身就是靠拉高平均氣道壓換氧合，同一個病人轉到 HFOV 之後 OI 會被墊高，門檻要跟著上調，才不會把模式差異誤讀成病情惡化。",
+  w:"CMV 40 / HFOV 60 是常見的實務組合，<b>不是指引數字</b>——ELSO 與 PALICC-2 都沒有給雙門檻。PALICC-2 的正式立場是 “No strict criteria”（Rec 8.1.1，conditional，90% agreement）。無動脈導管時可用 OSI 17.41 替代。",
   s:"Emeriaud 2023, PCCM 24(2):143-168 Table 7；Slaughter 2025, Front Pediatr 13:1586985"},
 
  {q:"6 歲林弟感染腸病毒併發嚴重心肌炎，使用 VA ECMO 治療，下列何者<b>不正確</b>？",
   o:["需要留意溶血的情況","呼吸器設定維持 PIP 15–20 cmH₂O","考慮病情危急，應持續禁食（NPO）","以上皆不正確"],a:2,
-  e:"營養不是等病情穩定才開始的事。ELSO 指引建議 ECMO 上機後 <b>24 小時內</b>啟動營養支持，目標 80–120 kcal/kg/day——長時間 NPO 反而增加感染與腸道萎縮風險。<br>A 正確：溶血的操作型定義是血漿游離血紅素 &gt; 50 mg/dL（正常 &lt; 10），床邊線索包括尿色變深、潛血陽性但鏡檢無紅血球。<br>B 正確：這正是 rest setting 的合理範圍。",
-  w:"溶血要問的不是「血跑了幾圈」，而是「哪裡壓力差太大」——管子太細、轉速太高，還是負壓拉太兇。",
+  e:"營養不是等病情穩定才開始的事。ELSO 建議上機後 <b>24 小時內</b>啟動，目標 80–120 kcal/kg/day；長時間 NPO 反而增加感染與腸道萎縮風險。<br>A 正確：溶血的操作型定義是血漿游離血紅素 &gt; 50 mg/dL（正常 &lt; 10），床邊線索為尿色變深、潛血陽性但鏡檢無紅血球。B 正確：屬 rest setting 的合理範圍。",
+  w:"溶血要問的不是「血跑了幾圈」，是「哪裡壓力差太大」——管徑、轉速、負壓。",
   s:"ELSO Neonatal Guidelines 2020, Table 2；Park 2023, Semin Pediatr Surg 32:151334"},
 
  {q:"當病人可以 weaning VV ECMO 時，其臨床表現包含哪些評估？<br>(1) compliance 增加　(2) heart function 改善　(3) CXR 改善　(4) FiO₂ &lt; 40–50%　(5) pH 7.3　(6) PaCO₂ &lt; 45 mmHg",
   o:["(1)(3)(6)","(2)(4)(5)","(2)(3)(5)(6)","(1)(3)(4)(6)"],a:3,
-  e:"VV ECMO 脫離看的是<b>肺</b>有沒有回來：順應性上升、胸片改善、自體肺的 FiO₂ 需求降到 40–50% 以下、CO₂ 清得掉（PaCO₂ &lt; 45）。<br>(2) heart function 是 VA ECMO 的脫離指標，不是 VV；(5) pH 7.3 是可接受下限，不是「可以脫離」的證據——它剛好是脫離不穩定的判定門檻之一（clamp 後 pH &lt; 7.30 即算不穩定）。",
-  w:"必須誠實講：小兒 ECMO 脫離<b>沒有公認的標準流程</b>。ELSO 指引本身寫「依機構 protocol」；Brown 2021 只建議每 24–48 小時評估、列定性徵象。連微循環都試過了——Suc 2024 是漂亮的陰性結果，舌下微循環無法預測脫離後的不穩定。",
+  e:"VV 脫離看的是<b>肺</b>有沒有回來：順應性上升、胸片改善、自體肺的 FiO₂ 需求降到 40–50% 以下、CO₂ 清得掉。<br>(2) heart function 是 VA 的脫離指標；(5) pH 7.3 是可接受下限而非脫離證據——它剛好是脫離後不穩定的判定門檻之一（clamp 後 pH &lt; 7.30 即算不穩定）。",
+  w:"小兒 ECMO 脫離沒有公認的標準流程。ELSO 寫「依機構 protocol」；連微循環都試過了——Suc 2024 是漂亮的陰性結果。",
   s:"Gajkowski 2022；Suc 2024, Artif Organs 48:831-838"}
 ];
 
