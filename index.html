@@ -196,9 +196,6 @@ h2.sec-title{font-size:clamp(24px,3.4vw,30px);font-weight:700;letter-spacing:-.0
 [hidden]{display:none!important}
 
 /* ── References ──────────────────────────────────────────────────── */
-.ref-group{margin-bottom:clamp(24px,3vw,34px)}
-.ref-group h3{font-size:18px;font-weight:700;color:var(--p1);margin-bottom:4px}
-.ref-group .gsub{font-size:14px;color:var(--tx2);margin-bottom:14px}
 ol.refs{margin:0;padding:0;list-style:none;counter-reset:r}
 ol.refs li{counter-increment:r;background:var(--white);border-radius:12px;box-shadow:var(--card);
   padding:16px 18px 16px 54px;position:relative;margin-bottom:10px;font-size:15px;line-height:1.8}
@@ -209,9 +206,6 @@ ol.refs .t{font-weight:600;display:block;margin-bottom:2px}
 ol.refs .j{color:var(--tx2);font-size:14px;display:block}
 ol.refs .doi{font-size:13px;font-weight:600;text-decoration:none;margin-top:6px;
   color:var(--p2);border-bottom:1px solid rgba(194,112,61,.35)}
-.note{background:var(--status-wash);border-radius:12px;padding:16px 20px;font-size:14.5px;
-  line-height:1.85;color:#6E5207;box-shadow:var(--card);margin-top:8px}
-.note b{color:#5A4206}
 
 /* ── Survey ──────────────────────────────────────────────────────── */
 .form-card{background:var(--white);border-radius:12px;padding:clamp(20px,3.2vw,32px);
@@ -331,15 +325,9 @@ footer .frow{display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:space-betw
     <div class="sec-head">
       <span class="sec-num">03</span>
       <h2 class="sec-title">文獻來源</h2>
-      <p class="sec-sub">演講中每一個數字的出處。依段落編組，點 DOI 可直接連到原文。</p>
+      <p class="sec-sub">演講中每一個數字的出處，共 21 篇。點 DOI 可直接連到原文。</p>
     </div>
     <div id="ref-list"></div>
-    <div class="note">
-      <b>引用時務必同時說出口的三件事</b><br>
-      1. <b>VT &lt; 4 mL/kg 的 OR 4.70 不等於「低潮氣容積有害」</b>——原文自承是 confounding by indication，六篇皆非 RCT。<br>
-      2. <b>統合分析的 n = 1,512 是假象</b>——其中 1,161 人（77%）來自單一篇 Friedman 2022。<br>
-      3. <b>PEEP 這條線是「四篇四個答案」，不是三個世代的遞進</b>——Friedman 2020／Miya 2023／Rambaud 2023／Fernandez-Sarmiento 2024 的方向互相矛盾，該講的是「需要逐床判讀」。
-    </div>
   </div>
 </section>
 
@@ -417,7 +405,7 @@ footer .frow{display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:space-betw
       </div>
       <div class="thanks" id="thanks" hidden>
         <h3>收到了，謝謝您</h3>
-        <p>您的回饋是很重要是下一場演講的養分。</p>
+        <p>您的回饋是下一場演講很重要的養分。</p>
       </div>
     </div>
   </div>
@@ -613,55 +601,34 @@ document.getElementById("reset").addEventListener("click", () => {
 
 /* ── 文獻 ──────────────────────────────────────────────────────── */
 const REFS = [
- {g:"A. 骨幹級（整場的地基）", sub:"指引與綜述，整場演講的引用基礎。",
-  items:[
-   {t:"ELSO Guidelines for Neonatal Respiratory Failure", j:"Wild KT, Rintoul N, Kattan J, Gray B. ASAIO J 2020.", d:"10.1097/MAT.0000000000001153"},
-   {t:"Best Practices for Vessel Management in Pediatric ECMO Cannulation, Decannulation, and Follow-up: A Narrative Review", j:"McDermott KM, Moursi M, Tomita S, Rothstein DH. J Pediatr Surg 2025;60:161961.", d:"10.1016/j.jpedsurg.2024.161961"},
-   {t:"ELSO Guidelines for Adult and Pediatric ECMO Circuits", j:"Gajkowski EF, et al. ASAIO J 2022;68(2):133-152.", d:"10.1097/MAT.0000000000001630"}
-  ]},
- {g:"B. 呼吸照護核心", sub:"本場對呼吸治療師最直接相關的三篇。",
-  items:[
-   {t:"Mechanical Ventilation in Children on Venovenous ECMO", j:"Friedman ML, Barbaro RP, Bembea MM, et al. Respir Care 2020;65(3):271-280.", d:"10.4187/respcare.07214"},
-   {t:"Rest ventilator management in children on VV-ECMO", j:"Friedman ML, Abu-Sultaneh S, Slaven JE, Mastropietro CW. Int J Artif Organs 2022;45(2):174-180.", d:"10.1177/0391398821999386"},
-   {t:"Flexible Bronchoscopy in Pediatric Venovenous ECMO", j:"Rosner EA, Parker JL, Vandenberg C, et al. Respir Care 2022;67(6):688-693.", d:"10.4187/respcare.09243"}
-  ]},
- {g:"C. 脫離與早期活動", sub:"證據最薄的一段——這裡的誠實比結論重要。",
-  items:[
-   {t:"Extubation Practices and Outcomes During Pediatric Respiratory ECMO: Analysis of the ELSO Registry, 2018–2022", j:"Rufener CR, Boulil Z, Suttner DM, et al. Pediatr Crit Care Med 2025;26(5):e680-e688.", d:"10.1097/PCC.0000000000003711"},
-   {t:"Feasibility of Early Mobility During Pediatric ECMO: Single-Center Retrospective Cohort Study, 2018–2024", j:"Mueller A, Bridges B, Danko M, et al. Pediatr Crit Care Med 2026;27(8):951-956.", d:"10.1097/PCC.0000000000003957"},
-   {t:"Predictive value of microcirculation for pediatric ECMO weaning test: A monocentric prospective observational study", j:"Suc V, Starck J, Levy Y, et al. Artif Organs 2024;48:831-838.", d:"10.1111/aor.14754"}
-  ]},
- {g:"D. 新生兒專屬", sub:"新生兒不是縮小版的兒童，這三篇是差異的來源。",
-  items:[
-   {t:"Neonatal venoarterial and venovenous ECMO", j:"Chernoguz A, Monteagudo J. Semin Pediatr Surg 2023;32:151326.", d:"10.1016/j.sempedsurg.2023.151326"},
-   {t:"Ventilation Strategies During ECMO for Neonatal Respiratory Failure: Current Approaches Among Level IV NICUs", j:"Ibrahim J, Mahmood B, DiGeronimo R, et al. Crit Care Explor 2022;4(11).", d:"10.1097/CCE.0000000000000779"},
-   {t:"Device updates in pediatric and neonatal ECMO", j:"Park Y, Drucker NA, Gray BW. Semin Pediatr Surg 2023;32:151334.", d:"10.1016/j.sempedsurg.2023.151334"}
-  ]},
- {g:"E. 姿位、輔助氣體與影像", sub:"補上「怎麼做」的資料——但不是「該不該做」的證據。",
-  items:[
-   {t:"Complications of Intermittent Prone Positioning in Pediatric Patients Receiving ECMO for Respiratory Failure", j:"Haefner SM, Bratton SL, Annich GM, Bartlett RH, Custer JR. CHEST 2003;123(5):1589-1594.", d:"10.1378/chest.123.5.1589"},
-   {t:"ECMO with prone position ventilation successfully rescues infantile pertussis: a case report and literature review", j:"Shi J, Wang C, Cui Y, Zhang Y. BMC Pediatr 2018;18:377.", d:"10.1186/s12887-018-1351-0"},
-   {t:"Nitric oxide delivery into the sweep flow of ECMO systems: technical challenges and solutions", j:"Mattke AC, Johnson K, Peek GJ, Venugopal P, Horton S. Perfusion 2026 (online first).", d:"10.1177/02676591251408659"},
-   {t:"Pediatric extracorporeal membrane oxygenation (ECMO): a guide for radiologists", j:"Thompson AF, Luan J, Al Aklabi MM, et al. Pediatr Radiol 2018;48:1488-1502.", d:"10.1007/s00247-018-4211-z"}
-  ]},
- {g:"F. 延伸引用", sub:"投影片中出現、但不屬於上述十六篇核心的文獻。",
-  items:[
-   {t:"Association Between Mortality and Ventilator Parameters in Children With Respiratory Failure on ECMO", j:"Miya T, et al. Respir Care 2023;68(5):592-601.", d:"10.4187/respcare.10261"},
-   {t:"Mechanical ventilation settings and mortality in pediatric ARDS on VV-ECMO", j:"Rambaud J, et al. Eur J Pediatr 2023;182(10):4487-4497.", d:"10.1007/s00431-023-05115-9"},
-   {t:"Association between mechanical ventilation parameters and mortality in children with respiratory failure on ECMO: a systematic review and meta-analysis", j:"Fernandez-Sarmiento J, et al. Front Pediatr 2024;12:1302049.", d:"10.3389/fped.2024.1302049"},
-   {t:"Second International Guidelines for the Diagnosis and Management of Pediatric ARDS (PALICC-2)", j:"Emeriaud G, et al. Pediatr Crit Care Med 2023;24(2):143-168.", d:"10.1097/PCC.0000000000003147"},
-   {t:"Extracorporeal Life Support Organization Registry International Report 2022", j:"Tonna JE, et al. ASAIO J 2024;70(2):131-143.", d:"10.1097/MAT.0000000000002128"},
-   {t:"Recirculation in venovenous ECMO: physiology and clinical implications", j:"Tomarchio E, et al. Perfusion 2024.", d:"10.1177/02676591231226289"}
-  ]}
+ {t:"ELSO Guidelines for Neonatal Respiratory Failure", j:"Wild KT, Rintoul N, Kattan J, Gray B. ASAIO J 2020.", d:"10.1097/MAT.0000000000001153"},
+ {t:"Best Practices for Vessel Management in Pediatric ECMO Cannulation, Decannulation, and Follow-up: A Narrative Review", j:"McDermott KM, Moursi M, Tomita S, Rothstein DH. J Pediatr Surg 2025;60:161961.", d:"10.1016/j.jpedsurg.2024.161961"},
+ {t:"ELSO Guidelines for Adult and Pediatric ECMO Circuits", j:"Gajkowski EF, et al. ASAIO J 2022;68(2):133-152.", d:"10.1097/MAT.0000000000001630"},
+ {t:"Mechanical Ventilation in Children on Venovenous ECMO", j:"Friedman ML, Barbaro RP, Bembea MM, et al. Respir Care 2020;65(3):271-280.", d:"10.4187/respcare.07214"},
+ {t:"Rest ventilator management in children on VV-ECMO", j:"Friedman ML, Abu-Sultaneh S, Slaven JE, Mastropietro CW. Int J Artif Organs 2022;45(2):174-180.", d:"10.1177/0391398821999386"},
+ {t:"Extubation Practices and Outcomes During Pediatric Respiratory ECMO: Analysis of the ELSO Registry, 2018–2022", j:"Rufener CR, Boulil Z, Suttner DM, et al. Pediatr Crit Care Med 2025;26(5):e680-e688.", d:"10.1097/PCC.0000000000003711"},
+ {t:"Feasibility of Early Mobility During Pediatric ECMO: Single-Center Retrospective Cohort Study, 2018–2024", j:"Mueller A, Bridges B, Danko M, et al. Pediatr Crit Care Med 2026;27(8):951-956.", d:"10.1097/PCC.0000000000003957"},
+ {t:"Predictive value of microcirculation for pediatric ECMO weaning test: A monocentric prospective observational study", j:"Suc V, Starck J, Levy Y, et al. Artif Organs 2024;48:831-838.", d:"10.1111/aor.14754"},
+ {t:"Neonatal venoarterial and venovenous ECMO", j:"Chernoguz A, Monteagudo J. Semin Pediatr Surg 2023;32:151326.", d:"10.1016/j.sempedsurg.2023.151326"},
+ {t:"Ventilation Strategies During ECMO for Neonatal Respiratory Failure: Current Approaches Among Level IV NICUs", j:"Ibrahim J, Mahmood B, DiGeronimo R, et al. Crit Care Explor 2022;4(11).", d:"10.1097/CCE.0000000000000779"},
+ {t:"Device updates in pediatric and neonatal ECMO", j:"Park Y, Drucker NA, Gray BW. Semin Pediatr Surg 2023;32:151334.", d:"10.1016/j.sempedsurg.2023.151334"},
+ {t:"Complications of Intermittent Prone Positioning in Pediatric Patients Receiving ECMO for Respiratory Failure", j:"Haefner SM, Bratton SL, Annich GM, Bartlett RH, Custer JR. CHEST 2003;123(5):1589-1594.", d:"10.1378/chest.123.5.1589"},
+ {t:"ECMO with prone position ventilation successfully rescues infantile pertussis: a case report and literature review", j:"Shi J, Wang C, Cui Y, Zhang Y. BMC Pediatr 2018;18:377.", d:"10.1186/s12887-018-1351-0"},
+ {t:"Nitric oxide delivery into the sweep flow of ECMO systems: technical challenges and solutions", j:"Mattke AC, Johnson K, Peek GJ, Venugopal P, Horton S. Perfusion 2026 (online first).", d:"10.1177/02676591251408659"},
+ {t:"Pediatric extracorporeal membrane oxygenation (ECMO): a guide for radiologists", j:"Thompson AF, Luan J, Al Aklabi MM, et al. Pediatr Radiol 2018;48:1488-1502.", d:"10.1007/s00247-018-4211-z"},
+ {t:"Association Between Mortality and Ventilator Parameters in Children With Respiratory Failure on ECMO", j:"Miya T, et al. Respir Care 2023;68(5):592-601.", d:"10.4187/respcare.10261"},
+ {t:"Mechanical ventilation settings and mortality in pediatric ARDS on VV-ECMO", j:"Rambaud J, et al. Eur J Pediatr 2023;182(10):4487-4497.", d:"10.1007/s00431-023-05115-9"},
+ {t:"Association between mechanical ventilation parameters and mortality in children with respiratory failure on ECMO: a systematic review and meta-analysis", j:"Fernandez-Sarmiento J, et al. Front Pediatr 2024;12:1302049.", d:"10.3389/fped.2024.1302049"},
+ {t:"Second International Guidelines for the Diagnosis and Management of Pediatric ARDS (PALICC-2)", j:"Emeriaud G, et al. Pediatr Crit Care Med 2023;24(2):143-168.", d:"10.1097/PCC.0000000000003147"},
+ {t:"Extracorporeal Life Support Organization Registry International Report 2022", j:"Tonna JE, et al. ASAIO J 2024;70(2):131-143.", d:"10.1097/MAT.0000000000002128"},
+ {t:"Recirculation in venovenous ECMO: physiology and clinical implications", j:"Tomarchio E, et al. Perfusion 2024.", d:"10.1177/02676591231226289"}
 ];
 
-document.getElementById("ref-list").innerHTML = REFS.map(g =>
-  '<div class="ref-group"><h3>' + g.g + '</h3><p class="gsub">' + g.sub + '</p><ol class="refs">' +
-  g.items.map(r =>
+document.getElementById("ref-list").innerHTML =
+  '<ol class="refs">' + REFS.map(r =>
     '<li><span class="t">' + r.t + '</span><span class="j">' + r.j + '</span>' +
     '<a class="doi" href="https://doi.org/' + r.d + '" target="_blank" rel="noopener">DOI ' + r.d + ' ↗</a></li>'
-  ).join("") + '</ol></div>'
-).join("");
+  ).join("") + '</ol>';
 
 /* ── 滿意度表單（AJAX 送出，留在同一頁） ───────────────────────── */
 const form = document.getElementById("survey-form");
