@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>小兒 ECMO 呼吸照護｜115 學年度進階小兒學術研討會</title>
 <meta name="description" content="小兒 ECMO 呼吸照護演講的講義下載、線上考題、文獻來源與滿意度回饋。講者：曾筠婷 呼吸治療師。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="robots" content="noindex, nofollow"><!-- 不讓搜尋引擎收錄 -->
 <style>
 /* ── Stable Output Contract ───────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box}
@@ -49,7 +47,9 @@ a:not(:where(p,li,td,th,figcaption,blockquote,label,h1,h2,h3,h4) a):not(:has(div
   --section:clamp(40px,7vw,64px);
   --card:0 1px 2px rgba(58,42,34,.14), 0 4px 14px rgba(58,42,34,.09);
   --card-h:0 2px 4px rgba(58,42,34,.16), 0 10px 26px rgba(58,42,34,.12);
-  --sans:"Manrope","Noto Sans TC","PingFang TC",system-ui,sans-serif;
+  /* 全部使用裝置內建字體 —— 不向任何外部伺服器要求資源 */
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",
+         "PingFang TC","Noto Sans TC","Microsoft JhengHei","Heiti TC",sans-serif;
 }
 body{
   font-family:var(--sans);background:var(--n-warm);color:var(--tx);
@@ -117,7 +117,7 @@ section[id]{scroll-margin-top:76px}
 .band.dark h2,.band.dark h3{color:#fff}
 .band.dark p{color:var(--tx-d2)}
 .sec-head{max-width:60ch;margin-bottom:clamp(22px,3vw,34px)}
-.sec-num{font-family:"Manrope",var(--sans);font-size:13px;font-weight:700;letter-spacing:.1em;
+.sec-num{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:.1em;
   color:var(--p2);display:block;margin-bottom:8px}
 h2.sec-title{font-size:clamp(24px,3.4vw,30px);font-weight:700;letter-spacing:-.015em;color:var(--p1)}
 .band.dark h2.sec-title{color:#fff}
