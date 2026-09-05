@@ -158,8 +158,8 @@ h2.sec-title{font-size:clamp(24px,3.4vw,30px);font-weight:700;letter-spacing:-.0
 .pdfwrap{height:calc(100vh - 112px);min-height:380px;background:var(--n-cool)}
 @supports (height:100dvh){ .pdfwrap{height:calc(100dvh - 112px)} }
 .pdfwrap iframe{width:100%;height:100%;border:0;display:block}
-.pdfnote{font-size:13px;color:var(--tx2);margin:0;padding:10px clamp(14px,3vw,28px);
-  background:var(--n-warm-deep)}
+.pdfnote{font-size:12.5px;line-height:1.5;color:var(--tx2);margin:0;
+  padding:5px clamp(14px,3vw,28px);background:var(--n-warm-deep)}
 
 /* ── Quiz ────────────────────────────────────────────────────────── */
 .quiz-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px}
@@ -248,9 +248,9 @@ input[type=text]:focus,textarea:focus{outline:none;border-color:var(--p2);backgr
 .thanks p{color:var(--tx2);margin:0}
 
 /* ── Footer + FAB ────────────────────────────────────────────────── */
-footer{background:var(--p3);color:var(--tx-d2);padding-block:clamp(28px,4vw,40px);font-size:14px}
+footer{background:var(--p3);color:var(--tx-d2);padding-block:8px;font-size:13px;line-height:1.6}
 footer strong{color:#fff;font-weight:600}
-footer .frow{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+footer .frow{display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:space-between;align-items:center}
 .fab{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:20px;width:56px;height:56px;
   border-radius:50%;background:var(--p2);color:#fff;border:none;cursor:pointer;z-index:60;
   display:grid;place-items:center;
