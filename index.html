@@ -146,10 +146,20 @@ h2.sec-title{font-size:clamp(24px,3.4vw,30px);font-weight:700;letter-spacing:-.0
 .pending{display:inline-flex;align-items:center;gap:8px;background:var(--status-wash);
   color:#7A5A08;border-radius:50px;padding:6px 14px;font-size:13px;font-weight:700;min-height:32px}
 .filemeta{font-size:13px;color:var(--tx2);margin-top:12px;margin-bottom:0}
-.pdfwrap{margin-top:clamp(20px,3vw,28px);background:var(--white);border-radius:12px;
-  box-shadow:var(--card);overflow:hidden}
-.pdfwrap iframe{width:100%;height:clamp(420px,78vh,880px);border:0;display:block;background:var(--n-cool)}
-.pdfnote{font-size:13.5px;color:var(--tx2);margin:10px 2px 0}
+/* 講義頁：滿版 PDF */
+.panel-full{min-height:0}
+.pdfbar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;
+  padding:8px clamp(14px,3vw,28px);min-height:52px;background:var(--n-warm-deep);
+  box-shadow:inset 0 -1px 0 rgba(58,42,34,.08)}
+.pdfbar-t{font-size:15.5px;font-weight:700;color:var(--p1)}
+.pdfbar-t small{font-size:13px;font-weight:500;color:var(--tx2);margin-left:8px}
+.pdfbar .btn{padding:8px 18px;font-size:14.5px}
+.pdfbar .filemeta{display:none}
+.pdfwrap{height:calc(100vh - 112px);min-height:380px;background:var(--n-cool)}
+@supports (height:100dvh){ .pdfwrap{height:calc(100dvh - 112px)} }
+.pdfwrap iframe{width:100%;height:100%;border:0;display:block}
+.pdfnote{font-size:13px;color:var(--tx2);margin:0;padding:10px clamp(14px,3vw,28px);
+  background:var(--n-warm-deep)}
 
 /* ── Quiz ────────────────────────────────────────────────────────── */
 .quiz-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px}
@@ -291,21 +301,12 @@ footer .frow{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
 </header>
 
 <!-- ═══ 1. 講義 ═══ -->
-<section class="band panel" id="handout" role="tabpanel" hidden>
-  <div class="container">
-    <div class="sec-head">
-      <span class="sec-num">01</span>
-      <h2 class="sec-title">講義下載</h2>
-      <p class="sec-sub">演講用的簡報 PDF。建議搭配「考題」那一頁一起使用。</p>
-    </div>
-    <div class="hand">
-      <div class="card">
-        <h3>演講講義 PDF</h3>
-        <div id="handout-slot"></div>
-      </div>
-    </div>
-    <div id="pdf-view"></div>
+<section class="panel panel-full" id="handout" role="tabpanel" hidden>
+  <div class="pdfbar">
+    <span class="pdfbar-t">演講講義<small id="pdfbar-meta"></small></span>
+    <span id="handout-slot"></span>
   </div>
+  <div id="pdf-view"></div>
 </section>
 
 <!-- ═══ 2. 考題 ═══ -->
@@ -454,11 +455,12 @@ function renderHandout(slotId, cfg){
 }
 renderHandout("handout-slot", HANDOUT);
 
-/* 講義頁直接內嵌 PDF；HANDOUT.url 為空時不顯示 */
+/* 講義頁：滿版內嵌 PDF；HANDOUT.url 為空時不顯示 */
 if (HANDOUT.url) {
+  document.getElementById("pdfbar-meta").textContent = HANDOUT.meta;
   document.getElementById("pdf-view").innerHTML =
     '<div class="pdfwrap"><iframe src="' + HANDOUT.url +
-    '#view=FitH" title="講義 PDF" loading="lazy"></iframe></div>' +
+    '#view=FitH" title="講義 PDF"></iframe></div>' +
     '<p class="pdfnote">手機上若無法直接瀏覽，請用上方按鈕下載後開啟。</p>';
 }
 
@@ -489,7 +491,8 @@ addEventListener("hashchange", () => {
   if (TABS.includes(h)) activate(h, true);
 });
 
-activate(location.hash.slice(1), false);
+/* 帶著 #handout 這類網址進來時，直接捲到該分頁（QR code 可以指定開哪一頁） */
+activate(location.hash.slice(1), TABS.includes(location.hash.slice(1)));
 
 /* ── 考題 ──────────────────────────────────────────────────────── */
 const QUESTIONS = [
