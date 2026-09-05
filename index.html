@@ -138,7 +138,7 @@ h2.sec-title{font-size:clamp(24px,3.4vw,30px);font-weight:700;letter-spacing:-.0
 .btn.is-off:active{transform:none}
 
 /* ── Handout ─────────────────────────────────────────────────────── */
-.hand{display:grid;gap:clamp(16px,2.4vw,24px);
+.hand{display:grid;gap:clamp(16px,2.4vw,24px);max-width:560px;
   grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
 .card{background:var(--white);border-radius:12px;padding:clamp(20px,3vw,28px);box-shadow:var(--card)}
 .card h3{font-size:19px;font-weight:600;color:var(--p1);margin-bottom:8px}
@@ -291,23 +291,13 @@ footer .frow{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
     <div class="sec-head">
       <span class="sec-num">01</span>
       <h2 class="sec-title">講義下載</h2>
-      <p class="sec-sub">演講用的簡報 PDF。建議搭配下方考題一起使用。</p>
+      <p class="sec-sub">演講用的簡報 PDF。建議搭配「考題」那一頁一起使用。</p>
     </div>
     <div class="hand">
       <div class="card">
         <h3>演講講義 PDF</h3>
         <p>完整簡報，含附錄。</p>
         <div id="handout-slot"></div>
-      </div>
-      <div class="card">
-        <h3>呼吸器設定對照</h3>
-        <p>Friedman 2020／2022 的真實世界 rest setting 中位數，與各中心實務調查對照。</p>
-        <div id="handout-slot-2"></div>
-      </div>
-      <div class="card">
-        <h3>怎麼用這份講義</h3>
-        <p>每一段都是「先給道理、再給數字、最後一句帶得走的話」。數字看不懂出處時，直接翻到文獻來源那一頁對照。</p>
-        <button class="btn btn-out" type="button" data-tab="refs">前往文獻來源</button>
       </div>
     </div>
   </div>
@@ -443,8 +433,7 @@ footer .frow{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
    設定區：把 PDF 放進 handout/ 資料夾後，在這裡填上檔名即可。
    例：HANDOUT.url = "handout/小兒ECMO_2026_講義.pdf";
    ════════════════════════════════════════════════════════════════ */
-const HANDOUT   = { url: "", label: "下載講義 PDF", meta: "" };
-const HANDOUT_2 = { url: "", label: "下載對照表 PDF", meta: "" };
+const HANDOUT = { url: "", label: "下載講義 PDF", meta: "" };
 
 function renderHandout(slotId, cfg){
   const el = document.getElementById(slotId);
@@ -459,7 +448,6 @@ function renderHandout(slotId, cfg){
   }
 }
 renderHandout("handout-slot", HANDOUT);
-renderHandout("handout-slot-2", HANDOUT_2);
 
 /* ── 分頁 ──────────────────────────────────────────────────────── */
 const TABS = ["handout","quiz","refs","survey"];
