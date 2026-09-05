@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小兒 ECMO 呼吸照護｜115 學年度進階小兒學術研討會</title>
+<meta name="description" content="小兒 ECMO 呼吸照護演講的講義下載、線上考題、文獻來源與滿意度回饋。講者：曾筠婷 呼吸治療師。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── Stable Output Contract ───────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;overflow-wrap:anywhere}
+img,svg,video,canvas{max-width:100%;height:auto;display:block}
+[class*="grid"]>*,[class*="cols"]>*,[class*="rail"]>*,[class*="tiers"]>*,[class*="cards"]>*{min-width:0}
+.container{width:min(var(--maxw,1080px),100% - 2*var(--gutter));margin-inline:auto}
+.table-wrap{overflow-x:auto;max-width:100%} .table-wrap>table{min-width:max-content}
+button,input,select,textarea{min-height:44px}
+a[class*="btn"],button{display:inline-flex;align-items:center;justify-content:center}
+a:not(:where(p,li,td,th,figcaption,blockquote,label,h1,h2,h3,h4) a):not(:has(div,section,article,figure,img,h1,h2,h3,h4)){
+  display:inline-flex;align-items:center;min-height:44px}
+[class*="stepper"],[class*="actions"],[class*="toolbar"],[class*="attr"],[class*="row"]{flex-wrap:wrap}
+.scroll-x{display:flex;gap:12px;overflow-x:auto;scrollbar-width:none}
+.scroll-x::-webkit-scrollbar{display:none} .scroll-x>*{flex:0 0 auto}
+:lang(zh),:lang(ja),:lang(ko){letter-spacing:normal}
+
+/* ── Tokens：暖色系（赤陶／琥珀／濃焙咖啡） ─────────────────────── */
+:root{
+  --p1:#8A4B2A;          /* Primary-1  主色：標題、品牌訊號 */
+  --p2:#C2703D;          /* Primary-2  強調／CTA／FAB */
+  --p3:#3A2A22;          /* Primary-3  深色版塊、頁尾 */
+  --p4:#A9744F;          /* Primary-4  裝飾次色 */
+  --p-wash:#F6E4D5;      /* 淺色暈染 */
+  --status:#B8860B;      /* 狀態強調：只用於「引用提醒」 */
+  --status-wash:#FBF1DA;
+  --white:#ffffff;
+  --n-cool:#FAF8F5;
+  --n-warm:#F7F2EA;      /* 頁面畫布 */
+  --n-warm-deep:#EFE7DA; /* 區隔帶 */
+  --tx:rgba(28,18,12,.88);
+  --tx2:rgba(28,18,12,.60);
+  --tx-d:#fff;
+  --tx-d2:rgba(255,255,255,.72);
+  --ok:#3F6B4E; --ok-wash:#E9F2EB;
+  --no:#B03A2E; --no-wash:#FBEBE9;
+  --gutter:clamp(16px,4vw,40px);
+  --section:clamp(40px,7vw,64px);
+  --card:0 1px 2px rgba(58,42,34,.14), 0 4px 14px rgba(58,42,34,.09);
+  --card-h:0 2px 4px rgba(58,42,34,.16), 0 10px 26px rgba(58,42,34,.12);
+  --sans:"Manrope","Noto Sans TC","PingFang TC",system-ui,sans-serif;
+}
+body{
+  font-family:var(--sans);background:var(--n-warm);color:var(--tx);
+  font-size:16px;line-height:1.75;letter-spacing:.005em;
+}
+h1,h2,h3,h4{margin:0;line-height:1.3}
+p{margin:0 0 1em}
+a{color:var(--p1)}
+
+/* ── Nav ─────────────────────────────────────────────────────────── */
+.nav{position:sticky;top:0;z-index:50;background:rgba(247,242,234,.94);
+  backdrop-filter:saturate(160%) blur(8px);
+  box-shadow:0 1px 0 rgba(58,42,34,.08), 0 2px 8px rgba(58,42,34,.05), 0 8px 24px rgba(58,42,34,.04)}
+.nav-in{display:flex;align-items:center;gap:16px;min-height:60px;padding-block:8px}
+.mark{font-weight:700;font-size:clamp(15px,2.4vw,17px);color:var(--p1);letter-spacing:-.01em;
+  display:flex;align-items:center;gap:9px;text-decoration:none;flex:0 0 auto}
+.mark .dot{width:26px;height:26px;border-radius:50%;background:var(--p2);flex:0 0 auto;
+  display:grid;place-items:center;color:#fff;font-size:12px;font-weight:700}
+.nav .scroll-x{margin-left:auto;gap:4px}
+.nav .scroll-x a{padding:8px 14px;border-radius:50px;text-decoration:none;color:var(--tx2);
+  font-size:14px;font-weight:600;white-space:nowrap;transition:.2s ease}
+.nav .scroll-x a:hover{background:var(--n-warm-deep);color:var(--p1)}
+@media (max-width:520px){
+  .mark-full{display:none}
+  .nav-in{gap:8px}
+  .nav .scroll-x a{padding:8px 10px;font-size:13.5px}
+}
+
+/* ── Hero ────────────────────────────────────────────────────────── */
+.hero{padding-block:clamp(36px,6vw,64px) var(--section);background:
+  linear-gradient(0deg,var(--n-warm),var(--n-warm))}
+.hero-grid{display:grid;gap:clamp(20px,3vw,32px);
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));align-items:center}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:13px;font-weight:700;
+  letter-spacing:.08em;color:var(--p2);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:clamp(30px,5.4vw,48px);font-weight:700;letter-spacing:-.02em;
+  line-height:1.22;color:var(--p1)}
+.hero .lede{font-size:clamp(17px,2vw,19px);line-height:1.8;color:var(--tx2);margin-top:16px;max-width:46ch}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{background:var(--white);border-radius:50px;padding:8px 16px;font-size:14px;font-weight:600;
+  color:var(--tx);box-shadow:var(--card);min-height:44px;display:inline-flex;align-items:center}
+.chip small{color:var(--tx2);font-weight:500;margin-right:6px}
+.hero-card{background:var(--p3);color:var(--tx-d);border-radius:12px;padding:clamp(22px,3.4vw,32px);
+  box-shadow:var(--card-h)}
+.hero-card h2{font-size:20px;font-weight:600;margin-bottom:14px}
+.hero-card ol{margin:0;padding-left:1.15em;color:var(--tx-d2);line-height:2}
+.hero-card ol a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
+.hero-card ol a:hover{border-color:#fff}
+
+/* ── Sections ────────────────────────────────────────────────────── */
+section[id]{scroll-margin-top:76px}
+.band{padding-block:var(--section)}
+.band.alt{background:var(--n-warm-deep)}
+.band.dark{background:var(--p3);color:var(--tx-d)}
+.band.dark h2,.band.dark h3{color:#fff}
+.band.dark p{color:var(--tx-d2)}
+.sec-head{max-width:60ch;margin-bottom:clamp(22px,3vw,34px)}
+.sec-num{font-family:"Manrope",var(--sans);font-size:13px;font-weight:700;letter-spacing:.1em;
+  color:var(--p2);display:block;margin-bottom:8px}
+h2.sec-title{font-size:clamp(24px,3.4vw,30px);font-weight:700;letter-spacing:-.015em;color:var(--p1)}
+.band.dark h2.sec-title{color:#fff}
+.sec-sub{color:var(--tx2);margin-top:10px;font-size:16px}
+.band.dark .sec-sub{color:var(--tx-d2)}
+
+/* ── Buttons ─────────────────────────────────────────────────────── */
+.btn{border-radius:50px;padding:10px 24px;min-height:44px;font-size:16px;font-weight:600;
+  border:1.5px solid transparent;cursor:pointer;text-decoration:none;transition:.2s ease;font-family:inherit}
+.btn:active{transform:scale(.95)}
+.btn-fill{background:var(--p2);color:#fff}
+.btn-fill:hover{background:var(--p1)}
+.btn-out{background:transparent;color:var(--p2);border-color:var(--p2)}
+.btn-out:hover{background:var(--p-wash)}
+.btn-inv{background:#fff;color:var(--p1)}
+.btn-quiet{background:var(--white);color:var(--tx);box-shadow:var(--card)}
+.btn[disabled],.btn.is-off{background:var(--n-warm-deep);color:var(--tx2);cursor:not-allowed;border-color:transparent}
+.btn.is-off:active{transform:none}
+
+/* ── Handout ─────────────────────────────────────────────────────── */
+.hand{display:grid;gap:clamp(16px,2.4vw,24px);
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.card{background:var(--white);border-radius:12px;padding:clamp(20px,3vw,28px);box-shadow:var(--card)}
+.card h3{font-size:19px;font-weight:600;color:var(--p1);margin-bottom:8px}
+.card p{color:var(--tx2);font-size:15px;margin-bottom:16px}
+.pending{display:inline-flex;align-items:center;gap:8px;background:var(--status-wash);
+  color:#7A5A08;border-radius:50px;padding:6px 14px;font-size:13px;font-weight:700;min-height:32px}
+.filemeta{font-size:13px;color:var(--tx2);margin-top:12px;margin-bottom:0}
+
+/* ── Quiz ────────────────────────────────────────────────────────── */
+.quiz-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px}
+.q{background:var(--white);border-radius:12px;padding:clamp(18px,2.6vw,26px);box-shadow:var(--card);
+  margin-bottom:16px}
+.q-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+.q-no{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--p-wash);color:var(--p1);
+  display:grid;place-items:center;font-size:14px;font-weight:700;line-height:1}
+.q-text{font-size:17px;font-weight:600;line-height:1.7}
+.q-stem{background:var(--n-cool);border-left:3px solid var(--p4);border-radius:0 8px 8px 0;
+  padding:12px 16px;margin:0 0 14px;font-size:15px;color:var(--tx2);line-height:1.8}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:12px;align-items:flex-start;justify-content:flex-start;text-align:left;width:100%;
+  background:var(--n-cool);border:1.5px solid rgba(58,42,34,.10);border-radius:12px;
+  padding:12px 16px;min-height:44px;font:inherit;font-size:15.5px;line-height:1.7;color:var(--tx);
+  cursor:pointer;transition:.18s ease}
+.opt:hover:not(:disabled){border-color:var(--p2);background:var(--white)}
+.opt:active:not(:disabled){transform:scale(.99)}
+.opt .k{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--white);
+  border:1.5px solid rgba(58,42,34,.18);display:grid;place-items:center;font-size:13px;font-weight:700;
+  margin-top:2px;line-height:1}
+.opt.correct{background:var(--ok-wash);border-color:var(--ok)}
+.opt.correct .k{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.wrong{background:var(--no-wash);border-color:var(--no)}
+.opt.wrong .k{background:var(--no);border-color:var(--no);color:#fff}
+.opt:disabled{cursor:default}
+.expl{margin-top:14px;border-radius:12px;background:var(--p-wash);padding:14px 18px;font-size:15px;
+  line-height:1.85;color:var(--tx)}
+.expl .lab{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;
+  letter-spacing:.06em;color:var(--p1);text-transform:uppercase;margin-bottom:6px}
+.expl .src{display:block;margin-top:10px;font-size:13px;color:var(--tx2);font-style:italic}
+.expl .warn{display:block;margin-top:10px;padding-top:10px;border-top:1px solid rgba(138,75,42,.18);
+  font-size:14px;color:#7A5A08}
+[hidden]{display:none!important}
+
+/* ── References ──────────────────────────────────────────────────── */
+.ref-group{margin-bottom:clamp(24px,3vw,34px)}
+.ref-group h3{font-size:18px;font-weight:700;color:var(--p1);margin-bottom:4px}
+.ref-group .gsub{font-size:14px;color:var(--tx2);margin-bottom:14px}
+ol.refs{margin:0;padding:0;list-style:none;counter-reset:r}
+ol.refs li{counter-increment:r;background:var(--white);border-radius:12px;box-shadow:var(--card);
+  padding:16px 18px 16px 54px;position:relative;margin-bottom:10px;font-size:15px;line-height:1.8}
+ol.refs li::before{content:counter(r);position:absolute;left:16px;top:16px;width:26px;height:26px;
+  border-radius:50%;background:var(--n-warm-deep);color:var(--p1);display:grid;place-items:center;
+  font-size:13px;font-weight:700;line-height:1}
+ol.refs .t{font-weight:600;display:block;margin-bottom:2px}
+ol.refs .j{color:var(--tx2);font-size:14px;display:block}
+ol.refs .doi{font-size:13px;font-weight:600;text-decoration:none;margin-top:6px;
+  color:var(--p2);border-bottom:1px solid rgba(194,112,61,.35)}
+.note{background:var(--status-wash);border-radius:12px;padding:16px 20px;font-size:14.5px;
+  line-height:1.85;color:#6E5207;box-shadow:var(--card);margin-top:8px}
+.note b{color:#5A4206}
+
+/* ── Survey ──────────────────────────────────────────────────────── */
+.form-card{background:var(--white);border-radius:12px;padding:clamp(20px,3.2vw,32px);
+  box-shadow:var(--card-h);max-width:720px}
+.band.dark .form-card{color:var(--tx)}
+.band.dark .form-card p{color:var(--tx2)}
+.band.dark .form-card .lab{color:var(--tx)}
+.band.dark .form-card .hint{color:var(--tx2)}
+.fld{margin-bottom:22px}
+.fld>.lab{display:block;font-size:15px;font-weight:600;margin-bottom:10px;color:var(--tx)}
+.fld .hint{font-size:13.5px;color:var(--tx2);font-weight:400;margin-left:6px}
+.scale{display:flex;flex-wrap:wrap;gap:8px}
+.scale label{position:relative}
+.scale input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.scale span{display:inline-flex;align-items:center;justify-content:center;min-height:44px;
+  padding:8px 18px;border-radius:50px;background:var(--n-cool);border:1.5px solid rgba(58,42,34,.12);
+  font-size:15px;font-weight:600;transition:.18s ease}
+.scale input:checked+span{background:var(--p2);border-color:var(--p2);color:#fff}
+.scale input:focus-visible+span{outline:2px solid var(--p1);outline-offset:2px}
+.chk{display:grid;gap:8px}
+.chk label{display:flex;gap:10px;align-items:flex-start;background:var(--n-cool);border-radius:12px;
+  padding:11px 14px;border:1.5px solid rgba(58,42,34,.10);font-size:15px;line-height:1.7;cursor:pointer;
+  min-height:44px;transition:.18s ease}
+.chk input{width:18px;height:18px;min-height:0;margin:4px 0 0;accent-color:var(--p2);flex:0 0 auto}
+.chk label:has(input:checked){background:var(--p-wash);border-color:var(--p2)}
+input[type=text],textarea{width:100%;border-radius:12px;border:1.5px solid rgba(58,42,34,.16);
+  background:var(--n-cool);padding:12px 14px;font:inherit;font-size:15px;color:var(--tx)}
+textarea{min-height:110px;line-height:1.75;resize:vertical}
+input[type=text]:focus,textarea:focus{outline:none;border-color:var(--p2);background:#fff}
+.privacy{font-size:13.5px;color:var(--tx2);line-height:1.8;margin:0 0 20px}
+.thanks{background:var(--ok-wash);border-radius:12px;padding:28px;text-align:center}
+.thanks h3{color:var(--ok);font-size:20px;margin-bottom:8px}
+.thanks p{color:var(--tx2);margin:0}
+
+/* ── Footer + FAB ────────────────────────────────────────────────── */
+footer{background:var(--p3);color:var(--tx-d2);padding-block:clamp(28px,4vw,40px);font-size:14px}
+footer strong{color:#fff;font-weight:600}
+footer .frow{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+.fab{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:20px;width:56px;height:56px;
+  border-radius:50%;background:var(--p2);color:#fff;border:none;cursor:pointer;z-index:60;
+  display:grid;place-items:center;
+  box-shadow:0 0 0 6px rgba(194,112,61,.14), 0 6px 16px rgba(58,42,34,.24), 0 14px 34px rgba(58,42,34,.16);
+  transition:.2s ease;opacity:0;pointer-events:none}
+.fab.on{opacity:1;pointer-events:auto}
+.fab:active{transform:scale(.95);box-shadow:0 0 0 4px rgba(194,112,61,.10), 0 3px 10px rgba(58,42,34,.2)}
+.fab svg{width:22px;height:22px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-in">
+    <a class="mark" href="#top"><span class="dot">E</span>小兒 ECMO<span class="mark-full"> 呼吸照護</span></a>
+    <div class="scroll-x">
+      <a href="#handout">講義</a>
+      <a href="#quiz">考題</a>
+      <a href="#refs">文獻</a>
+      <a href="#survey">滿意度</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">115 學年度 · 進階小兒學術研討會</span>
+      <h1>小兒 ECMO<br>呼吸照護實務</h1>
+      <p class="lede">先講機轉，再用數字釘住。這一頁放的是演講當天用得到的四件事：講義、考題、每一個數字的出處，還有你的回饋。</p>
+      <div class="meta">
+        <span class="chip"><small>講者</small>曾筠婷 呼吸治療師</span>
+        <span class="chip"><small>日期</small>2026 / 09 / 06</span>
+        <span class="chip"><small>時長</small>50 分鐘</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h2>這一頁有什麼</h2>
+      <ol>
+        <li><a href="#handout">講義 PDF 下載</a></li>
+        <li><a href="#quiz">線上考題（10 題，含解析）</a></li>
+        <li><a href="#refs">文獻來源與出處</a></li>
+        <li><a href="#survey">滿意度回饋</a></li>
+      </ol>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ 1. 講義 ═══ -->
+<section class="band" id="handout">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">講義下載</h2>
+      <p class="sec-sub">演講用的簡報 PDF。建議搭配下方考題一起使用。</p>
+    </div>
+    <div class="hand">
+      <div class="card">
+        <h3>演講講義 PDF</h3>
+        <p>完整簡報，含附錄。</p>
+        <div id="handout-slot"></div>
+      </div>
+      <div class="card">
+        <h3>呼吸器設定對照</h3>
+        <p>Friedman 2020／2022 的真實世界 rest setting 中位數，與各中心實務調查對照。</p>
+        <div id="handout-slot-2"></div>
+      </div>
+      <div class="card">
+        <h3>怎麼用這份講義</h3>
+        <p>每一段都是「先給道理、再給數字、最後一句帶得走的話」。數字看不懂出處時，直接到<a href="#refs">文獻來源</a>對照。</p>
+        <a class="btn btn-out" href="#refs">前往文獻來源</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2. 考題 ═══ -->
+<section class="band alt" id="quiz">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">線上考題</h2>
+      <p class="sec-sub">共 10 題。選完立刻顯示正確答案與解析，不計分——目的是把觀念釘住，不是考倒你。</p>
+    </div>
+    <div class="quiz-bar">
+      <button class="btn btn-out" id="show-all" type="button">直接顯示全部答案</button>
+      <button class="btn btn-quiet" id="reset" type="button">重新作答</button>
+    </div>
+    <div id="quiz-list"></div>
+  </div>
+</section>
+
+<!-- ═══ 3. 文獻 ═══ -->
+<section class="band" id="refs">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">文獻來源</h2>
+      <p class="sec-sub">演講中每一個數字的出處。依段落編組，點 DOI 可直接連到原文。</p>
+    </div>
+    <div id="ref-list"></div>
+    <div class="note">
+      <b>引用時務必同時說出口的三件事</b><br>
+      1. <b>VT &lt; 4 mL/kg 的 OR 4.70 不等於「低潮氣容積有害」</b>——原文自承是 confounding by indication，六篇皆非 RCT。<br>
+      2. <b>統合分析的 n = 1,512 是假象</b>——其中 1,161 人（77%）來自單一篇 Friedman 2022。<br>
+      3. <b>PEEP 這條線是「四篇四個答案」，不是三個世代的遞進</b>——Friedman 2020／Miya 2023／Rambaud 2023／Fernandez-Sarmiento 2024 的方向互相矛盾，該講的是「需要逐床判讀」。
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 4. 滿意度 ═══ -->
+<section class="band dark" id="survey">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">滿意度回饋</h2>
+      <p class="sec-sub">大約一分鐘。你的回饋會直接影響下一場的內容深度與取捨。</p>
+    </div>
+
+    <div class="form-card">
+      <div id="form-wrap">
+        <p class="privacy">本問卷不會蒐集姓名或任何可識別個人的資料，僅用於改進課程內容。所有欄位皆可留空。</p>
+        <form id="survey-form" name="satisfaction" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="satisfaction">
+          <p hidden><label>請勿填寫：<input name="bot-field"></label></p>
+
+          <div class="fld">
+            <span class="lab">整體滿意度 <span class="hint">1 = 很不滿意，5 = 很滿意</span></span>
+            <div class="scale">
+              <label><input type="radio" name="overall" value="1"><span>1</span></label>
+              <label><input type="radio" name="overall" value="2"><span>2</span></label>
+              <label><input type="radio" name="overall" value="3"><span>3</span></label>
+              <label><input type="radio" name="overall" value="4"><span>4</span></label>
+              <label><input type="radio" name="overall" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="fld">
+            <span class="lab">內容深度</span>
+            <div class="scale">
+              <label><input type="radio" name="depth" value="太淺"><span>太淺</span></label>
+              <label><input type="radio" name="depth" value="剛好"><span>剛好</span></label>
+              <label><input type="radio" name="depth" value="太深"><span>太深</span></label>
+            </div>
+          </div>
+
+          <div class="fld">
+            <span class="lab">對臨床工作的幫助 <span class="hint">1 = 沒幫助，5 = 很有幫助</span></span>
+            <div class="scale">
+              <label><input type="radio" name="usefulness" value="1"><span>1</span></label>
+              <label><input type="radio" name="usefulness" value="2"><span>2</span></label>
+              <label><input type="radio" name="usefulness" value="3"><span>3</span></label>
+              <label><input type="radio" name="usefulness" value="4"><span>4</span></label>
+              <label><input type="radio" name="usefulness" value="5"><span>5</span></label>
+            </div>
+          </div>
+
+          <div class="fld">
+            <span class="lab">最有收穫的段落 <span class="hint">可複選</span></span>
+            <div class="chk">
+              <label><input type="checkbox" name="best" value="管路與流體力學"><span>管路選擇與流體力學（為什麼引流管要比回輸管粗）</span></label>
+              <label><input type="checkbox" name="best" value="溶血與再循環"><span>溶血與再循環的區辨</span></label>
+              <label><input type="checkbox" name="best" value="呼吸器設定"><span>ECMO 上的呼吸器設定（rest setting）</span></label>
+              <label><input type="checkbox" name="best" value="支氣管鏡"><span>支氣管鏡的安全性與時機</span></label>
+              <label><input type="checkbox" name="best" value="脫離與早期活動"><span>脫離評估與早期活動</span></label>
+              <label><input type="checkbox" name="best" value="新生兒專屬"><span>新生兒專屬考量</span></label>
+            </div>
+          </div>
+
+          <div class="fld">
+            <span class="lab">希望下次多講什麼？</span>
+            <input type="text" name="next_topic" placeholder="例如：俯臥擺位的實際操作、台灣本土資料">
+          </div>
+
+          <div class="fld">
+            <span class="lab">其他建議 <span class="hint">選填</span></span>
+            <textarea name="comments" placeholder="哪一段講太快、哪一張投影片看不懂，都歡迎直說。"></textarea>
+          </div>
+
+          <button class="btn btn-fill" type="submit" id="submit-btn">送出回饋</button>
+        </form>
+      </div>
+      <div class="thanks" id="thanks" hidden>
+        <h3>收到了，謝謝你</h3>
+        <p>你的回饋會用在下一場的內容調整上。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container frow">
+    <div><strong>小兒 ECMO 呼吸照護</strong>　115 學年度進階小兒學術研討會 · 2026/09/06</div>
+    <div>講者：曾筠婷 呼吸治療師</div>
+  </div>
+</footer>
+
+<button class="fab" id="fab" type="button" aria-label="回到頁首">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+/* ════════════════════════════════════════════════════════════════
+   設定區：把 PDF 放進 handout/ 資料夾後，在這裡填上檔名即可。
+   例：HANDOUT.url = "handout/小兒ECMO_2026_講義.pdf";
+   ════════════════════════════════════════════════════════════════ */
+const HANDOUT   = { url: "", label: "下載講義 PDF", meta: "" };
+const HANDOUT_2 = { url: "", label: "下載對照表 PDF", meta: "" };
+
+function renderHandout(slotId, cfg){
+  const el = document.getElementById(slotId);
+  if (cfg.url){
+    el.innerHTML =
+      '<a class="btn btn-fill" href="' + cfg.url + '" download>' + cfg.label + '</a>' +
+      (cfg.meta ? '<p class="filemeta">' + cfg.meta + '</p>' : '');
+  } else {
+    el.innerHTML =
+      '<span class="pending">● 準備中</span>' +
+      '<p class="filemeta">檔案確認後會放上來，網址不會變，之後直接回到這一頁下載即可。</p>';
+  }
+}
+renderHandout("handout-slot", HANDOUT);
+renderHandout("handout-slot-2", HANDOUT_2);
+
+/* ── 考題 ──────────────────────────────────────────────────────── */
+const QUESTIONS = [
+ {q:"在監測使用葉克膜（ECMO）的病人時，Hct 通常維持在哪個範圍內以確保足夠的氧氣輸送能力？",
+  o:["50–55%","40–45%","30–35%","20–25%"],a:2,
+  e:"ECMO 的氧氣輸送量 = 血流量 × 血紅素攜氧量，所以維持一定的 Hct 是「用血液品質換流量」的做法。傳統目標落在 30–35%（Hb 約 10–12 g/dL）：再高會增加血液黏滯度與迴路血栓風險，再低則必須靠拉高流量來補償，而拉高流量本身就會增加剪力與溶血。",
+  w:"近年趨勢是限制性輸血，各中心門檻不一致；講的時候請說「多數中心維持 30% 以上」，不要說成有共識的固定數字。",
+  s:"ELSO Guidelines for Neonatal Respiratory Failure, ASAIO J 2020"},
+
+ {q:"根據 ELSO 指引，在葉克膜（ECMO）治療期間，建議的呼吸器設定策略為何？",
+  o:["增加呼吸次數","盡可能提高平均氣道壓","採用 rest settings","維持 FiO₂ 100%"],a:2,
+  e:"ECMO 已經接手氧合與二氧化碳清除，呼吸器的任務從「維持氣體交換」變成「讓肺休息」。真實世界的 rest setting 中位數是 rate 12、PIP 22、PEEP 10、FiO₂ 0.4——插管後 rate 降 54%、PIP 降 35%、FiO₂ 降 60%，只有 PEEP 幾乎不動，維持在 10。",
+  w:"但「rest setting」不等於有共識的數值。Friedman 2020 自己聲明本研究不支持任何特定呼吸器策略，建議個別化。",
+  s:"Friedman 2022, Int J Artif Organs 45(2):174-180；Friedman 2020, Respir Care 65(3):271-280"},
+
+ {q:"關於小兒 ECMO 的使用，何者<b>非</b>適應症？",
+  o:["呼吸窘迫症候群（RDS）","先天橫膈膜麻痺","急性心肌炎併心臟衰竭","吸入性胎便肺炎症候群（MAS）"],a:1,
+  e:"新生兒 ECMO 有四分之三是呼吸性病因，其中以 CDH、PPHN、MAS 為大宗；急性猛爆性心肌炎則是典型的 VA ECMO 適應症（可恢復的心因性衰竭）。先天橫膈膜「麻痺」是神經肌肉性的通氣問題，處理方式是橫膈折疊術加上呼吸器支持，不是 ECMO 的適應症——它和先天橫膈膜「疝氣」（CDH）是兩件事，中文只差一個字，很容易混。",
+  w:"",
+  s:"Chernoguz & Monteagudo, Semin Pediatr Surg 2023;32:151326"},
+
+ {q:"有關 extracorporeal membrane oxygenation（ECMO）的敘述，何者正確？",
+  o:["調整 gas blender 的氣體流速（gas flow），可以控制血液中 CO₂ 的濃度","blood flow 會受管路 size 影響","heat exchanger 溫度控制在 36.5–37°C，過低易心律不整","以上皆是"],a:3,
+  e:"三個都對，而且分屬三條不同的物理線：<br>① <b>兩個旋鈕各管一件事</b>——sweep gas flow 洗掉 CO₂，FdO₂ 管氧合。但 gas flow 不可以低於 1 L/min，那不是省，是讓氧合器積水失效。<br>② <b>泊肅葉定律</b>：阻力 ∝ 1/r⁴，導管直徑加倍，壓力降變成 1/16。所以管徑就是流量的天花板。<br>③ 體溫目標 37°C；低體溫會誘發心律不整（HIE 需低溫治療者例外，前 24–72 小時 33–34°C）。",
+  w:"",
+  s:"Gajkowski 2022, ASAIO J 68(2):133-152；ELSO Neonatal Guidelines 2020"},
+
+ {q:"下列何者符合理想照護目標？",
+  o:["VV ECMO 之下，SvO₂ 65%、SaO₂ 99%","VV ECMO 之下，SvO₂ 99%、SaO₂ 65%","VA ECMO 之下，SvO₂ 90%、SaO₂ 99%","VA ECMO 之下，SvO₂ 99%、SaO₂ 90%"],a:0,
+  e:"SvO₂ 該低於 SaO₂——那個差距就是組織真的把氧用掉了。VA ECMO 的 SvO₂ 目標是 65–80%；VV ECMO 因為回輸血本來就會混進引流端，SvO₂ 會被墊高，但仍應明顯低於動脈端。<br>選項 B（SvO₂ 99% 卻 SaO₂ 65%）是嚴重再循環的典型畫面；C、D 的 SvO₂ 90–99% 代表血根本沒被組織萃取，要嘛是再循環，要嘛是組織氧利用障礙。",
+  w:"",
+  s:"ELSO Neonatal Guidelines 2020；Gajkowski 2022"},
+
+ {q:"一位 8 歲孩童因 pARDS 裝置 double-lumen VV ECMO，Pump flow 已達最大設定，但團隊發現 SpO₂ 88%、SvO₂ 89%、氧合器後 SaO₂ 99%。最可能是什麼？該怎麼處理？",
+  o:["競爭流（Competitive Flow），應提高 FdO₂","氧合器故障，應調整呼吸器 FiO₂ 並準備更換氧合器","再循環（Recirculation）或管路移位，確認管路位置","心輸出量不足，加上強心劑"],a:2,
+  e:"關鍵線索是 <b>SvO₂ 追上甚至超過 SpO₂</b>——ELSO 指引舉的例子就是「SvO₂ 87% / SpO₂ 92%」為可疑、「SvO₂ 92% / SpO₂ 87%」為嚴重。氧合器後 SaO₂ 99% 直接排除氧合器故障。<br>處置順序是<b>先確認導管位置</b>（超音波優於單張胸片，因為頸部導管位置會隨頭頸姿勢改變），再考慮 sedation、repositioning、補容積、必要時<b>降</b>流量。",
+  w:"直覺會想把流量再調高，但 Tomarchio 2024 寫得很清楚：QR worsens with increasing ECBF, to a point where the Qeff might paradoxically decrease——流量愈高，再循環愈嚴重，有效流量反而下降。另外請不要說「雙腔比雙管容易再循環」，文獻方向相反；DLC 真正的弱點是對位置極度敏感。",
+  s:"Gajkowski 2022, ASAIO J；Tomarchio 2024, Perfusion；Thompson 2018, Pediatr Radiol 48:1488-1502"},
+
+ {q:"有關 neonatal ECMO 的使用與裝置，何者<b>為非</b>？",
+  o:["VV ECMO 常用 double-lumen，管路依據體重決定","Relative contraindication：infant &lt; 30 week","Indication &gt; 2 kg","VA ECMO 常見放置位置為 right internal jugular vein 與 right common carotid artery，管路依據體重決定"],a:1,
+  e:"新生兒的相對禁忌門檻是<b>妊娠 34 週</b>與體重 2 kg，不是 30 週。而且這條線近十年已經鬆動——早產與低體重不再被當成絕對禁忌。<br>其他三項都對：頸動脈 VA 佔新生兒 ECMO 的 85–90%；導管尺寸依體重選（&lt; 3 kg 動脈 8–10 Fr、靜脈雙腔 12–13 Fr）。",
+  w:"雙腔導管最細只有 13 Fr，所以體重低於 2.5 kg 的新生兒在 VV 這條路上是真的受限——這是設備限制，不是禁忌症。",
+  s:"McDermott 2025, J Pediatr Surg 60:161961；Chernoguz 2023"},
+
+ {q:"傳統呼吸器（CMV）與高頻震盪式通氣（HFOV）之下的 oxygenation index（OI），達到多少可以考慮 ECMO？",
+  o:["CMV 60 / HFOV 40","CMV 30 / HFOV 50","CMV 40 / HFOV 40","CMV 40 / HFOV 60"],a:3,
+  e:"OI = (MAP × FiO₂ × 100) / PaO₂。HFOV 本身就是靠拉高平均氣道壓來換氧合，同一個病人換到 HFOV 之後 OI 會被墊高，所以門檻要跟著往上調，才不會把「模式差異」誤讀成「病情惡化」。常用的組合就是 CMV OI ≥ 40、HFOV OI ≥ 60。",
+  w:"PALICC-2 對 ECMO 啟動的正式立場是 <b>“No strict criteria”</b>（Rec 8.1.1，conditional，90% agreement）——OI 是輔助判斷，不是通過門檻就該上機。另可參考 OSI 17.41（sustained 0.5–6 小時）作為無動脈導管時的替代指標。",
+  s:"Emeriaud 2023, PCCM 24(2):143-168 Table 7；Slaughter 2025, Front Pediatr 13:1586985"},
+
+ {q:"6 歲林弟感染腸病毒併發嚴重心肌炎，使用 VA ECMO 治療，下列何者<b>不正確</b>？",
+  o:["需要留意溶血的情況","呼吸器設定維持 PIP 15–20 cmH₂O","考慮病情危急，應持續禁食（NPO）","以上皆不正確"],a:2,
+  e:"營養不是等病情穩定才開始的事。ELSO 指引建議 ECMO 上機後 <b>24 小時內</b>啟動營養支持，目標 80–120 kcal/kg/day——長時間 NPO 反而增加感染與腸道萎縮風險。<br>A 正確：溶血的操作型定義是血漿游離血紅素 &gt; 50 mg/dL（正常 &lt; 10），床邊線索包括尿色變深、潛血陽性但鏡檢無紅血球。<br>B 正確：這正是 rest setting 的合理範圍。",
+  w:"溶血要問的不是「血跑了幾圈」，而是「哪裡壓力差太大」——管子太細、轉速太高，還是負壓拉太兇。",
+  s:"ELSO Neonatal Guidelines 2020, Table 2；Park 2023, Semin Pediatr Surg 32:151334"},
+
+ {q:"當病人可以 weaning VV ECMO 時，其臨床表現包含哪些評估？<br>(1) compliance 增加　(2) heart function 改善　(3) CXR 改善　(4) FiO₂ &lt; 40–50%　(5) pH 7.3　(6) PaCO₂ &lt; 45 mmHg",
+  o:["(1)(3)(6)","(2)(4)(5)","(2)(3)(5)(6)","(1)(3)(4)(6)"],a:3,
+  e:"VV ECMO 脫離看的是<b>肺</b>有沒有回來：順應性上升、胸片改善、自體肺的 FiO₂ 需求降到 40–50% 以下、CO₂ 清得掉（PaCO₂ &lt; 45）。<br>(2) heart function 是 VA ECMO 的脫離指標，不是 VV；(5) pH 7.3 是可接受下限，不是「可以脫離」的證據——它剛好是脫離不穩定的判定門檻之一（clamp 後 pH &lt; 7.30 即算不穩定）。",
+  w:"必須誠實講：小兒 ECMO 脫離<b>沒有公認的標準流程</b>。ELSO 指引本身寫「依機構 protocol」；Brown 2021 只建議每 24–48 小時評估、列定性徵象。連微循環都試過了——Suc 2024 是漂亮的陰性結果，舌下微循環無法預測脫離後的不穩定。",
+  s:"Gajkowski 2022；Suc 2024, Artif Organs 48:831-838"}
+];
+
+const KEYS = ["A","B","C","D"];
+const list = document.getElementById("quiz-list");
+
+QUESTIONS.forEach((item, i) => {
+  const card = document.createElement("div");
+  card.className = "q";
+  card.innerHTML =
+    '<div class="q-head"><span class="q-no">' + (i+1) + '</span>' +
+    '<span class="q-text">' + item.q + '</span></div>' +
+    '<div class="opts">' +
+      item.o.map((t,j) =>
+        '<button class="opt" type="button" data-q="'+i+'" data-o="'+j+'">' +
+        '<span class="k">'+KEYS[j]+'</span><span>'+t+'</span></button>').join("") +
+    '</div>' +
+    '<div class="expl" hidden>' +
+      '<span class="lab">解析</span>' +
+      '<div>' + item.e + '</div>' +
+      (item.w ? '<span class="warn">⚠ ' + item.w + '</span>' : '') +
+      '<span class="src">出處：' + item.s + '</span>' +
+    '</div>';
+  list.appendChild(card);
+});
+
+function revealQ(card, qi, picked){
+  const opts = card.querySelectorAll(".opt");
+  const ans  = QUESTIONS[qi].a;
+  opts.forEach((b, j) => {
+    b.disabled = true;
+    if (j === ans) b.classList.add("correct");
+    else if (picked !== null && j === picked) b.classList.add("wrong");
+  });
+  card.querySelector(".expl").hidden = false;
+}
+
+list.addEventListener("click", e => {
+  const btn = e.target.closest(".opt");
+  if (!btn || btn.disabled) return;
+  revealQ(btn.closest(".q"), +btn.dataset.q, +btn.dataset.o);
+});
+
+document.getElementById("show-all").addEventListener("click", () => {
+  document.querySelectorAll("#quiz-list .q").forEach((c, i) => revealQ(c, i, null));
+});
+
+document.getElementById("reset").addEventListener("click", () => {
+  document.querySelectorAll("#quiz-list .q").forEach(c => {
+    c.querySelectorAll(".opt").forEach(b => {
+      b.disabled = false; b.classList.remove("correct","wrong");
+    });
+    c.querySelector(".expl").hidden = true;
+  });
+  document.getElementById("quiz").scrollIntoView({behavior:"smooth", block:"start"});
+});
+
+/* ── 文獻 ──────────────────────────────────────────────────────── */
+const REFS = [
+ {g:"A. 骨幹級（整場的地基）", sub:"指引與綜述，整場演講的引用基礎。",
+  items:[
+   {t:"ELSO Guidelines for Neonatal Respiratory Failure", j:"Wild KT, Rintoul N, Kattan J, Gray B. ASAIO J 2020.", d:"10.1097/MAT.0000000000001153"},
+   {t:"Best Practices for Vessel Management in Pediatric ECMO Cannulation, Decannulation, and Follow-up: A Narrative Review", j:"McDermott KM, Moursi M, Tomita S, Rothstein DH. J Pediatr Surg 2025;60:161961.", d:"10.1016/j.jpedsurg.2024.161961"},
+   {t:"ELSO Guidelines for Adult and Pediatric ECMO Circuits", j:"Gajkowski EF, et al. ASAIO J 2022;68(2):133-152.", d:"10.1097/MAT.0000000000001630"}
+  ]},
+ {g:"B. 呼吸照護核心", sub:"本場對呼吸治療師最直接相關的三篇。",
+  items:[
+   {t:"Mechanical Ventilation in Children on Venovenous ECMO", j:"Friedman ML, Barbaro RP, Bembea MM, et al. Respir Care 2020;65(3):271-280.", d:"10.4187/respcare.07214"},
+   {t:"Rest ventilator management in children on VV-ECMO", j:"Friedman ML, Abu-Sultaneh S, Slaven JE, Mastropietro CW. Int J Artif Organs 2022;45(2):174-180.", d:"10.1177/0391398821999386"},
+   {t:"Flexible Bronchoscopy in Pediatric Venovenous ECMO", j:"Rosner EA, Parker JL, Vandenberg C, et al. Respir Care 2022;67(6):688-693.", d:"10.4187/respcare.09243"}
+  ]},
+ {g:"C. 脫離與早期活動", sub:"證據最薄的一段——這裡的誠實比結論重要。",
+  items:[
+   {t:"Extubation Practices and Outcomes During Pediatric Respiratory ECMO: Analysis of the ELSO Registry, 2018–2022", j:"Rufener CR, Boulil Z, Suttner DM, et al. Pediatr Crit Care Med 2025;26(5):e680-e688.", d:"10.1097/PCC.0000000000003711"},
+   {t:"Feasibility of Early Mobility During Pediatric ECMO: Single-Center Retrospective Cohort Study, 2018–2024", j:"Mueller A, Bridges B, Danko M, et al. Pediatr Crit Care Med 2026;27(8):951-956.", d:"10.1097/PCC.0000000000003957"},
+   {t:"Predictive value of microcirculation for pediatric ECMO weaning test: A monocentric prospective observational study", j:"Suc V, Starck J, Levy Y, et al. Artif Organs 2024;48:831-838.", d:"10.1111/aor.14754"}
+  ]},
+ {g:"D. 新生兒專屬", sub:"新生兒不是縮小版的兒童，這三篇是差異的來源。",
+  items:[
+   {t:"Neonatal venoarterial and venovenous ECMO", j:"Chernoguz A, Monteagudo J. Semin Pediatr Surg 2023;32:151326.", d:"10.1016/j.sempedsurg.2023.151326"},
+   {t:"Ventilation Strategies During ECMO for Neonatal Respiratory Failure: Current Approaches Among Level IV NICUs", j:"Ibrahim J, Mahmood B, DiGeronimo R, et al. Crit Care Explor 2022;4(11).", d:"10.1097/CCE.0000000000000779"},
+   {t:"Device updates in pediatric and neonatal ECMO", j:"Park Y, Drucker NA, Gray BW. Semin Pediatr Surg 2023;32:151334.", d:"10.1016/j.sempedsurg.2023.151334"}
+  ]},
+ {g:"E. 姿位、輔助氣體與影像", sub:"補上「怎麼做」的資料——但不是「該不該做」的證據。",
+  items:[
+   {t:"Complications of Intermittent Prone Positioning in Pediatric Patients Receiving ECMO for Respiratory Failure", j:"Haefner SM, Bratton SL, Annich GM, Bartlett RH, Custer JR. CHEST 2003;123(5):1589-1594.", d:"10.1378/chest.123.5.1589"},
+   {t:"ECMO with prone position ventilation successfully rescues infantile pertussis: a case report and literature review", j:"Shi J, Wang C, Cui Y, Zhang Y. BMC Pediatr 2018;18:377.", d:"10.1186/s12887-018-1351-0"},
+   {t:"Nitric oxide delivery into the sweep flow of ECMO systems: technical challenges and solutions", j:"Mattke AC, Johnson K, Peek GJ, Venugopal P, Horton S. Perfusion 2026 (online first).", d:"10.1177/02676591251408659"},
+   {t:"Pediatric extracorporeal membrane oxygenation (ECMO): a guide for radiologists", j:"Thompson AF, Luan J, Al Aklabi MM, et al. Pediatr Radiol 2018;48:1488-1502.", d:"10.1007/s00247-018-4211-z"}
+  ]},
+ {g:"F. 延伸引用", sub:"投影片中出現、但不屬於上述十六篇核心的文獻。",
+  items:[
+   {t:"Association Between Mortality and Ventilator Parameters in Children With Respiratory Failure on ECMO", j:"Miya T, et al. Respir Care 2023;68(5):592-601.", d:"10.4187/respcare.10261"},
+   {t:"Mechanical ventilation settings and mortality in pediatric ARDS on VV-ECMO", j:"Rambaud J, et al. Eur J Pediatr 2023;182(10):4487-4497.", d:"10.1007/s00431-023-05115-9"},
+   {t:"Association between mechanical ventilation parameters and mortality in children with respiratory failure on ECMO: a systematic review and meta-analysis", j:"Fernandez-Sarmiento J, et al. Front Pediatr 2024;12:1302049.", d:"10.3389/fped.2024.1302049"},
+   {t:"Second International Guidelines for the Diagnosis and Management of Pediatric ARDS (PALICC-2)", j:"Emeriaud G, et al. Pediatr Crit Care Med 2023;24(2):143-168.", d:"10.1097/PCC.0000000000003147"},
+   {t:"Extracorporeal Life Support Organization Registry International Report 2022", j:"Tonna JE, et al. ASAIO J 2024;70(2):131-143.", d:"10.1097/MAT.0000000000002128"},
+   {t:"Recirculation in venovenous ECMO: physiology and clinical implications", j:"Tomarchio E, et al. Perfusion 2024.", d:"10.1177/02676591231226289"}
+  ]}
+];
+
+document.getElementById("ref-list").innerHTML = REFS.map(g =>
+  '<div class="ref-group"><h3>' + g.g + '</h3><p class="gsub">' + g.sub + '</p><ol class="refs">' +
+  g.items.map(r =>
+    '<li><span class="t">' + r.t + '</span><span class="j">' + r.j + '</span>' +
+    '<a class="doi" href="https://doi.org/' + r.d + '" target="_blank" rel="noopener">DOI ' + r.d + ' ↗</a></li>'
+  ).join("") + '</ol></div>'
+).join("");
+
+/* ── 滿意度表單（AJAX 送出，留在同一頁） ───────────────────────── */
+const form = document.getElementById("survey-form");
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById("submit-btn");
+  btn.disabled = true; btn.textContent = "送出中…";
+  try {
+    await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(new FormData(form)).toString()
+    });
+    document.getElementById("form-wrap").hidden = true;
+    document.getElementById("thanks").hidden = false;
+  } catch (err) {
+    btn.disabled = false; btn.textContent = "送出失敗，再試一次";
+  }
+});
+
+/* ── FAB ───────────────────────────────────────────────────────── */
+const fab = document.getElementById("fab");
+addEventListener("scroll", () => fab.classList.toggle("on", scrollY > 500), {passive:true});
+fab.addEventListener("click", () => scrollTo({top:0, behavior:"smooth"}));
+</script>
+</body>
+</html>
