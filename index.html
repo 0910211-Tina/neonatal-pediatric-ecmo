@@ -146,6 +146,10 @@ h2.sec-title{font-size:clamp(24px,3.4vw,30px);font-weight:700;letter-spacing:-.0
 .pending{display:inline-flex;align-items:center;gap:8px;background:var(--status-wash);
   color:#7A5A08;border-radius:50px;padding:6px 14px;font-size:13px;font-weight:700;min-height:32px}
 .filemeta{font-size:13px;color:var(--tx2);margin-top:12px;margin-bottom:0}
+.pdfwrap{margin-top:clamp(20px,3vw,28px);background:var(--white);border-radius:12px;
+  box-shadow:var(--card);overflow:hidden}
+.pdfwrap iframe{width:100%;height:clamp(420px,78vh,880px);border:0;display:block;background:var(--n-cool)}
+.pdfnote{font-size:13.5px;color:var(--tx2);margin:10px 2px 0}
 
 /* ── Quiz ────────────────────────────────────────────────────────── */
 .quiz-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px}
@@ -297,10 +301,10 @@ footer .frow{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
     <div class="hand">
       <div class="card">
         <h3>演講講義 PDF</h3>
-        <p>完整簡報，含附錄。</p>
         <div id="handout-slot"></div>
       </div>
     </div>
+    <div id="pdf-view"></div>
   </div>
 </section>
 
@@ -449,6 +453,14 @@ function renderHandout(slotId, cfg){
   }
 }
 renderHandout("handout-slot", HANDOUT);
+
+/* 講義頁直接內嵌 PDF；HANDOUT.url 為空時不顯示 */
+if (HANDOUT.url) {
+  document.getElementById("pdf-view").innerHTML =
+    '<div class="pdfwrap"><iframe src="' + HANDOUT.url +
+    '#view=FitH" title="講義 PDF" loading="lazy"></iframe></div>' +
+    '<p class="pdfnote">手機上若無法直接瀏覽，請用上方按鈕下載後開啟。</p>';
+}
 
 /* ── 分頁 ──────────────────────────────────────────────────────── */
 const TABS = ["handout","quiz","refs","survey"];
