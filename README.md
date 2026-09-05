@@ -50,13 +50,16 @@ const HANDOUT = { url: "handout/小兒ECMO_2026_講義.pdf", label: "下載講�
 
 ## 部署
 
+Repo：https://github.com/0910211-Tina/neonatal-pediatric-ecmo
+
 靜態站，沒有 build 步驟、沒有任何 API 金鑰。
 
-```
-GitHub repo → Netlify「Import from Git」→ publish directory 留空（netlify.toml 已設為 "."）
-```
+1. Netlify → **Add new site → Import an existing project → GitHub**
+2. 選 `neonatal-pediatric-ecmo`
+3. Build command 留空、Publish directory 留空（`netlify.toml` 已設 `publish = "."`）
+4. Deploy → 完成後進 **Forms → Enable form detection**
 
-推到 main 就自動重新部署；PR 會有 deploy preview。
+推到 `main` 就自動重新部署；PR 會有 deploy preview。
 
 ## 授權與注意事項
 
