@@ -492,8 +492,8 @@ const QUESTIONS = [
 
  {q:"根據 ELSO 指引，在葉克膜（ECMO）治療期間，建議的呼吸器設定策略為何？",
   o:["增加呼吸次數","盡可能提高平均氣道壓","採用 rest settings","維持 FiO₂ 100%"],a:2,
-  e:"ECMO 已接手氧合與二氧化碳清除，呼吸器的任務改成讓肺休息。真實世界的 rest setting 中位數是 rate 12、PIP 22、PEEP 10、FiO₂ 0.4——插管後 rate 降 54%、PIP 降 35%、FiO₂ 降 60%，只有 PEEP 不動。",
-  w:"Rest setting 不等於有共識的數值。Friedman 2020 明講本研究不支持任何特定呼吸器策略。",
+  e:"ECMO 接手氧合與二氧化碳清除，呼吸器的任務改為rest setting。目前rest setting 中位數是 rate 12、PIP 22、PEEP 10、FiO₂ 0.4。",
+  w:"",
   s:"Friedman 2022, Int J Artif Organs 45(2):174-180；Friedman 2020, Respir Care 65(3):271-280"},
 
  {q:"關於小兒 ECMO 的使用，何者<b>非</b>適應症？",
@@ -504,44 +504,44 @@ const QUESTIONS = [
 
  {q:"有關 extracorporeal membrane oxygenation（ECMO）的敘述，何者正確？",
   o:["調整 gas blender 的氣體流速（gas flow），可以控制血液中 CO₂ 的濃度","blood flow 會受管路 size 影響","heat exchanger 溫度控制在 36.5–37°C，過低易心律不整","以上皆是"],a:3,
-  e:"三條各自獨立的物理線：<br>① sweep gas flow 洗掉 CO₂、FdO₂ 管氧合；但 gas flow 不可低於 1 L/min，否則氧合器積水失效。<br>② 泊肅葉定律 R ∝ 1/r⁴——導管直徑加倍，壓力降剩 1/16，管徑就是流量的天花板。<br>③ 體溫目標 37°C，過低誘發心律不整（HIE 需低溫治療者前 24–72 小時 33–34°C 例外）。",
+  e:"三條各自獨立的物理線：<br>① sweep gas flow 洗掉 CO₂、FdO₂ 管氧合。<br>② 泊肅葉定律 R ∝ 1/r⁴——導管直徑加倍，壓力降剩 1/16，管徑就是流量的天花板。<br>③ 體溫目標 37°C，過低誘發心律不整（HIE 需低溫治療者前 24–72 小時 33–34°C 例外）。",
   w:"",
   s:"Gajkowski 2022, ASAIO J 68(2):133-152；ELSO Neonatal Guidelines 2020"},
 
  {q:"下列何者符合理想照護目標？",
   o:["VV ECMO 之下，SvO₂ 65%、SaO₂ 99%","VV ECMO 之下，SvO₂ 99%、SaO₂ 65%","VA ECMO 之下，SvO₂ 90%、SaO₂ 99%","VA ECMO 之下，SvO₂ 99%、SaO₂ 90%"],a:0,
-  e:"SvO₂ 低於 SaO₂ 的那個差距，就是組織確實把氧用掉了。VA ECMO 的 SvO₂ 目標是 65–80%。選項 B（SvO₂ 99%、SaO₂ 65%）是嚴重再循環的典型畫面；C、D 的 SvO₂ 90–99% 代表血沒被萃取。",
-  w:"選項 A 的 SaO₂ 99% 與 VV ECMO 常用的容許性低血氧目標（SpO₂ 88–92%）不一致；四個裡它仍是最好的答案，但可能被追問。",
+  e:"SvO₂ 低於 SaO₂ 的那個差距，就是組織確實把氧用掉了。VA ECMO 的 SvO₂ 目標是 65–80%。選項 B（SvO₂ 99%、SaO₂ 65%）是嚴重再循環的典型畫面。",
+  w:"",
   s:"ELSO Neonatal Guidelines 2020；Friedman 2020, Respir Care"},
 
  {q:"一位 8 歲孩童因 pARDS 裝置 double-lumen VV ECMO，Pump flow 已達最大設定，但團隊發現 SpO₂ 88%、SvO₂ 89%、氧合器後 SaO₂ 99%。最可能是什麼？該怎麼處理？",
   o:["競爭流（Competitive Flow），應提高 FdO₂","氧合器故障，應調整呼吸器 FiO₂ 並準備更換氧合器","再循環（Recirculation）或管路移位，確認管路位置","心輸出量不足，加上強心劑"],a:2,
   e:"關鍵在 SvO₂ 追上 SpO₂。ELSO 舉的例子是「SvO₂ 87% / SpO₂ 92%」可疑、「SvO₂ 92% / SpO₂ 87%」嚴重。氧合器後 SaO₂ 99% 直接排除氧合器故障。<br>處置順序：<b>先確認導管位置</b>（超音波優於單張胸片，頸部導管會隨頭頸姿勢移動），再考慮 sedation、repositioning、補容積，必要時<b>降</b>流量。",
-  w:"調高流量是最誘人的錯誤——Tomarchio 2024：流量愈高、再循環愈嚴重，有效流量反而下降。另請勿說「雙腔比雙管容易再循環」，文獻方向相反；DLC 的弱點是對位置極度敏感。",
+  w:"調高流量是最誘人的錯誤——Tomarchio 2024：流量愈高、再循環愈嚴重，有效流量反而下降。",
   s:"Gajkowski 2022；Tomarchio 2024, Perfusion；Thompson 2018, Pediatr Radiol 48:1488-1502"},
 
  {q:"有關 neonatal ECMO 的使用與裝置，何者<b>為非</b>？",
   o:["VV ECMO 常用 double-lumen，管路依據體重決定","Relative contraindication：infant &lt; 30 week","Indication &gt; 2 kg","VA ECMO 常見放置位置為 right internal jugular vein 與 right common carotid artery，管路依據體重決定"],a:1,
   e:"新生兒的相對禁忌門檻是<b>妊娠 34 週</b>與體重 2 kg，不是 30 週，而且近十年已經鬆動。其餘三項都對：頸動脈 VA 佔新生兒 ECMO 的 85–90%；導管依體重選（&lt; 3 kg 動脈 8–10 Fr、靜脈雙腔 12–13 Fr）。",
-  w:"雙腔導管最細只有 13 Fr，體重低於 2.5 kg 走 VV 這條路確實受限——那是設備限制，不是禁忌症。",
+  w:"雙腔導管最細只有 13 Fr，體重低於 2.5 kg 是 VV 的設備限制，不是禁忌症。",
   s:"McDermott 2025, J Pediatr Surg 60:161961；Chernoguz 2023"},
 
  {q:"傳統呼吸器（CMV）與高頻震盪式通氣（HFOV）之下的 oxygenation index（OI），達到多少可以考慮 ECMO？",
   o:["CMV 60 / HFOV 40","CMV 30 / HFOV 50","CMV 40 / HFOV 40","CMV 40 / HFOV 60"],a:3,
   e:"OI =（MAP × FiO₂ × 100）／PaO₂。HFOV 本身就是靠拉高平均氣道壓換氧合，同一個病人轉到 HFOV 之後 OI 會被墊高，門檻要跟著上調，才不會把模式差異誤讀成病情惡化。",
-  w:"CMV 40 / HFOV 60 是常見的實務組合，<b>不是指引數字</b>——ELSO 與 PALICC-2 都沒有給雙門檻。PALICC-2 的正式立場是 “No strict criteria”（Rec 8.1.1，conditional，90% agreement）。無動脈導管時可用 OSI 17.41 替代。",
+  w:"CMV 40 / HFOV 60 是常見的實務組合，<b>PALICC-2 的正式立場是 “No strict criteria”（Rec 8.1.1，conditional，90% agreement）。無A-line時可用 OSI 17.41 替代。",
   s:"Emeriaud 2023, PCCM 24(2):143-168 Table 7；Slaughter 2025, Front Pediatr 13:1586985"},
 
  {q:"6 歲林弟感染腸病毒併發嚴重心肌炎，使用 VA ECMO 治療，下列何者<b>不正確</b>？",
   o:["需要留意溶血的情況","呼吸器設定維持 PIP 15–20 cmH₂O","考慮病情危急，應持續禁食（NPO）","以上皆不正確"],a:2,
   e:"營養不是等病情穩定才開始的事。ELSO 建議上機後 <b>24 小時內</b>啟動，目標 80–120 kcal/kg/day；長時間 NPO 反而增加感染與腸道萎縮風險。<br>A 正確：溶血的操作型定義是血漿游離血紅素 &gt; 50 mg/dL（正常 &lt; 10），床邊線索為尿色變深、潛血陽性但鏡檢無紅血球。B 正確：屬 rest setting 的合理範圍。",
-  w:"溶血要問的不是「血跑了幾圈」，是「哪裡壓力差太大」——管徑、轉速、負壓。",
+  w:"溶血在意「哪裡壓力差太大」——管徑、轉速、負壓。",
   s:"ELSO Neonatal Guidelines 2020, Table 2；Park 2023, Semin Pediatr Surg 32:151334"},
 
  {q:"當病人可以 weaning VV ECMO 時，其臨床表現包含哪些評估？<br>(1) compliance 增加　(2) heart function 改善　(3) CXR 改善　(4) FiO₂ &lt; 40–50%　(5) pH 7.3　(6) PaCO₂ &lt; 45 mmHg",
   o:["(1)(3)(6)","(2)(4)(5)","(2)(3)(5)(6)","(1)(3)(4)(6)"],a:3,
-  e:"VV 脫離看的是<b>肺</b>有沒有回來：順應性上升、胸片改善、自體肺的 FiO₂ 需求降到 40–50% 以下、CO₂ 清得掉。<br>(2) heart function 是 VA 的脫離指標；(5) pH 7.3 是可接受下限而非脫離證據——它剛好是脫離後不穩定的判定門檻之一（clamp 後 pH &lt; 7.30 即算不穩定）。",
-  w:"小兒 ECMO 脫離沒有公認的標準流程。ELSO 寫「依機構 protocol」；連微循環都試過了——Suc 2024 是漂亮的陰性結果。",
+  e:"VV 脫離看的是<b>肺部功能</b>有沒有回來：順應性上升、胸片改善、FiO₂ 需求降到 40–50% 以下、CO₂ 可wash out。<br>(2) heart function 是 VA 的脫離指標；(5) pH 7.3 是可接受下限而非脫離證據——是脫離後不穩定的判定門檻之一（clamp 後 pH &lt; 7.30 即算不穩定）。",
+  w:"",
   s:"Gajkowski 2022；Suc 2024, Artif Organs 48:831-838"}
 ];
 
